@@ -1,6 +1,10 @@
 {% extends 'layout.html' %}
 {% load static %}
 {% block title %} Trang chủ {% endblock %}
+{% block static %}
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css" />
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css" />
+{% endblock %}
 
 {% block content %}
 <!-- banner -->
@@ -9,7 +13,7 @@
     <img src="{% static 'images/h1-rev-bottom 1.png' %}" alt="" srcset="" class="absolute w-full bottom-0">
 </div>
 
-<!-- container -->
+<!-- Về chúng tôi -->
 <main class="lg:py-[150px] py-[50px] lg:px-[122px] px-[16px]">
     <div class="lg:flex lg:justify-between lg:items-center lg:gap-[104px]">
         <img src="{% static 'images/Mask group.png' %}" alt="" srcset="" class="lg:mb-[0px] mb-[36px]">
@@ -31,7 +35,7 @@
         </div>
     </div>
 </main>
-
+<!-- Lĩnh vực hoạt động -->
 <main class="relative">
     <img src="{% static 'images/Rectangle 336.png' %}" alt="" class="absolute w-full h-full">
     <div class="lg:py-[150px] lg:px-[120px] py-[50px] px-[16px] relative">
@@ -138,4 +142,244 @@
         </div>
     </div>
 </main>
+<!-- Các dự án -->
+<main class="relative overflow-hidden">
+    <img src="{% static 'images/landing-img-49 1.png' %}" alt="" srcset="" class="absolute w-full h-full">
+    <div class="lg:py-[150px] py-[60px] relative z-10">
+        <div class="uppercase text-center lg:mb-[50px] mb-[36px]">
+            <div class="text-main font-[500] max-[600px]:text-[14px]">các dự án</div>
+            <h2 class="text-blackMain px-[16px]">Tuyệt tác giữa khoảng trời riêng</h2>
+        </div>
+        <div class="lg:mb-[50px] mb-[36px]">
+            <div class="slider">
+                <div class="mr-2">
+                    <div class="relative">
+                        <img src="{% static 'images/unsplash_A5rCN8626Ck.png' %}" alt="" srcset=""
+                            class="w-full lg:h-[700px] h-[400px]">
+                        <div class="absolute bottom-0 w-full px-[24px] pt-[64px] pb-[32px]"
+                            style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);">
+                            <h3 class="text-white">Hasu Village</h3>
+                            <p class="text-main uppercase font-[500]">Xóm Nước Hang, Hòa Bình</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mr-2">
+                    <div class="relative">
+                        <img src="{% static 'images/unsplash_A5rCN8626Ck.png' %}" alt="" srcset=""
+                            class="w-full lg:h-[700px] h-[400px]">
+                        <div class="absolute bottom-0 w-full px-[24px] pt-[64px] pb-[32px]"
+                            style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);">
+                            <h3 class="text-white">Hasu Village</h3>
+                            <p class="text-main uppercase font-[500]">Xóm Nước Hang, Hòa Bình</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mr-2">
+                    <div class="relative">
+                        <img src="{% static 'images/unsplash_A5rCN8626Ck.png' %}" alt="" srcset=""
+                            class="w-full lg:h-[700px] h-[400px]">
+                        <div class="absolute bottom-0 w-full px-[24px] pt-[64px] pb-[32px]"
+                            style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);">
+                            <h3 class="text-white">Hasu Village</h3>
+                            <p class="text-main uppercase font-[500]">Xóm Nước Hang, Hòa Bình</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mr-2">
+                    <div class="relative">
+                        <img src="{% static 'images/unsplash_A5rCN8626Ck.png' %}" alt="" srcset=""
+                            class="w-full lg:h-[700px] h-[400px]">
+                        <div class="absolute bottom-0 w-full px-[24px] pt-[64px] pb-[32px]"
+                            style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);">
+                            <h3 class="text-white">Hasu Village</h3>
+                            <p class="text-main uppercase font-[500]">Xóm Nước Hang, Hòa Bình</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mr-2">
+                    <div class="relative">
+                        <img src="{% static 'images/unsplash_A5rCN8626Ck.png' %}" alt="" srcset=""
+                            class="w-full lg:h-[700px] h-[400px]">
+                        <div class="absolute bottom-0 w-full px-[24px] pt-[64px] pb-[32px]"
+                            style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);">
+                            <h3 class="text-white">Hasu Village</h3>
+                            <p class="text-main uppercase font-[500]">Xóm Nước Hang, Hòa Bình</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mr-2">
+                    <div class="relative">
+                        <img src="{% static 'images/unsplash_A5rCN8626Ck.png' %}" alt="" srcset=""
+                            class="w-full lg:h-[700px] h-[400px]">
+                        <div class="absolute bottom-0 w-full px-[24px] pt-[64px] pb-[32px]"
+                            style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);">
+                            <h3 class="text-white">Hasu Village</h3>
+                            <p class="text-main uppercase font-[500]">Xóm Nước Hang, Hòa Bình</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-center items-center">
+            <button
+                class="inline uppercase text-grayMain font-bold px-[32px] h-[50px] rounded-[25px] border-[2px] border-main">
+                xem tất cả các dự án
+            </button>
+        </div>
+    </div>
+</main>
+<!-- Tuyển dụng -->
+<main class="lg:flex gap-[80px] items-center bg-[#F9F8F5]">
+    <img src="{% static 'images/unsplash_ZiAwa7FV3OQ.png' %}" alt="" srcset="" class="h-full lg:w-auto w-full lg:mb-0">
+    <div class="flex-1 lg:pr-[120px] lg:pl-0 pr-[16px] pl-[16px] lg:py-[150px] py-[50px]">
+        <div class="uppercase lg:mb-[50px] mb-[36px]">
+            <div class="text-main font-[500]">tuyển dụng</div>
+            <h2 class="text-[#181C23]">làm việc tại ravi</h2>
+        </div>
+        <div class="flex flex-col lg:gap-[32px] gap-[16px]">
+            <div
+                class="bg-white lg:py-[39px] lg:px-[24px] py-[16px] px-[16px] lg:flex items-center justify-between group">
+                <div class="lg:mb-0 mb-[16px]">
+                    <h3 class="text-blackMain lg:mb-[16px] mb-[8px]">Nhân viên đại diện kinh doanh</h3>
+                    <div class="flex items-center gap-[32px]">
+                        <p class="text-grayMain">Mức lương: <span class="font-bold">15~20tr</span></p>
+                        <p class="text-grayMain">Số lượng: <span class="font-bold">2</span></p>
+                    </div>
+                </div>
+                <a href="#" class="text-main font-bold uppercase lg:hidden group-hover:block">ứng tuyển ngay</a>
+            </div>
+            <div
+                class="bg-white lg:py-[39px] lg:px-[24px] py-[16px] px-[16px] lg:flex items-center justify-between group">
+                <div class="lg:mb-0 mb-[16px]">
+                    <h3 class="text-blackMain lg:mb-[16px] mb-[8px]">Nhân viên đại diện kinh doanh</h3>
+                    <div class="flex items-center gap-[32px]">
+                        <p class="text-grayMain">Mức lương: <span class="font-bold">15~20tr</span></p>
+                        <p class="text-grayMain">Số lượng: <span class="font-bold">2</span></p>
+                    </div>
+                </div>
+                <a href="#" class="text-main font-bold uppercase lg:hidden group-hover:block">ứng tuyển ngay</a>
+            </div>
+            <div
+                class="bg-white lg:py-[39px] lg:px-[24px] py-[16px] px-[16px] lg:flex items-center justify-between group">
+                <div class="lg:mb-0 mb-[16px]">
+                    <h3 class="text-blackMain lg:mb-[16px] mb-[8px]">Nhân viên đại diện kinh doanh</h3>
+                    <div class="flex items-center gap-[32px]">
+                        <p class="text-grayMain">Mức lương: <span class="font-bold">15~20tr</span></p>
+                        <p class="text-grayMain">Số lượng: <span class="font-bold">2</span></p>
+                    </div>
+                </div>
+                <a href="#" class="text-main font-bold uppercase lg:hidden group-hover:block">ứng tuyển ngay</a>
+            </div>
+            <div>
+                <button
+                    class="inline uppercase text-grayMain font-bold px-[32px] h-[50px] rounded-[25px] border-[2px] border-main inline">
+                    xem tất cả
+                </button>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- Đối tác -->
+<main class="lg:py-[160px] py-[50px] overflow-hidden">
+    <div class="text-center lg:px-[353px] px-[16px] lg:mb-[50px] mb-[24px]">
+        <h2 class="uppercase text-blackMain lg:mb-[30px] mb-[24px]">Đối tác của RAVI</h2>
+        <p class="text-grayMain">
+            Danh sách đối tác ngày càng dài thêm là minh chứng cho mối quan hệ hợp tác hiệu quả giữa RAVI cùng các đối
+            tác tại Việt Nam và nhiều quốc gia trên thế giới. RAVI tự hào được kể tên các thương hiệu nổi tiếng mà RAVI
+            đã và đang hợp tác.
+        </p>
+    </div>
+    <div class="px-[27px]">
+        <div class="slider1">
+            <div>
+                <img src="{% static 'images/1200px-Best_Western_Hotels__Resorts_logo 1.png' %}" alt="" srcset="">
+            </div>
+            <div>
+                <img src="{% static 'images/1200px-Best_Western_Hotels__Resorts_logo 1.png' %}" alt="" srcset="">
+            </div>
+            <div>
+                <img src="{% static 'images/1200px-Best_Western_Hotels__Resorts_logo 1.png' %}" alt="" srcset="">
+            </div>
+            <div>
+                <img src="{% static 'images/1200px-Best_Western_Hotels__Resorts_logo 1.png' %}" alt="" srcset="">
+            </div>
+            <div>
+                <img src="{% static 'images/1200px-Best_Western_Hotels__Resorts_logo 1.png' %}" alt="" srcset="">
+            </div>
+            <div>
+                <img src="{% static 'images/1200px-Best_Western_Hotels__Resorts_logo 1.png' %}" alt="" srcset="">
+            </div>
+            <div>
+                <img src="{% static 'images/1200px-Best_Western_Hotels__Resorts_logo 1.png' %}" alt="" srcset="">
+            </div>
+        </div>
+    </div>
+</main>
+{% include 'components/register.html'%}
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
+<script>
+    $(".slider").slick({
+        autoplay: true,
+        speed: 2000,
+        autoplaySpeed: 2000,
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 2,
+        centerMode: true,
+        responsive: [{
+
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 3,
+            }
+
+        }, {
+
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 1,
+            }
+
+        }, {
+
+            breakpoint: 300,
+            settings: "unslick" // destroys slick
+
+        }]
+    });
+
+    $(".slider1").slick({
+        autoplay: true,
+        speed: 2000,
+        autoplaySpeed: 2000,
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 2,
+        centerMode: true,
+        responsive: [{
+
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 3,
+            }
+
+        }, {
+
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 1,
+            }
+
+        }, {
+
+            breakpoint: 300,
+            settings: "unslick" // destroys slick
+
+        }]
+    });
+</script>
 {% endblock %}
