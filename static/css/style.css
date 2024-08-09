@@ -1,0 +1,20 @@
+h2 {
+
+    font-size: 40px !important;
+    font-weight: 400 !important;
+}
+
+h3 {
+
+    font-size: 32px !important;
+    font-weight: 400 !important;
+}
+
+@media screen and (max-width: 1000px) {
+
+    h3 {
+
+        font-size: 24px !important;
+        font-weight: 400 !important;
+    }
+}
