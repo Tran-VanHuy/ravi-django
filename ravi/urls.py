@@ -19,6 +19,5 @@ from django.urls import path
 from ui.views import *
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', LandingPage.as_view(), name="landing-page")
+    path('admin/', admin.site.urls)
 ]
