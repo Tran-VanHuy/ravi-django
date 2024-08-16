@@ -20,5 +20,6 @@ from ui.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', LandingPage.as_view(), name="landing-page")
+    path('du-an/<slug>', ProjectDetailList.as_view(), name="project_detail")
+
 ]
