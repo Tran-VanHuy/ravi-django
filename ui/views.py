@@ -11,3 +11,10 @@ class LandingPage(TemplateView):
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
         return context
+
+class ProjectDetailPage(TemplateView):
+    template_name = "project-detail/index.html"
+
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        return context
