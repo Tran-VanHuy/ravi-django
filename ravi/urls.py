@@ -19,5 +19,7 @@ from django.urls import path
 from ui.views import *
 
 urlpatterns = [
-    path('admin/', admin.site.urls)
+    path('admin/', admin.site.urls),
+    path('du-an/<slug>', ProjectDetailList.as_view(), name="project_detail")
+
 ]
