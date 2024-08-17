@@ -15,6 +15,9 @@ class LandingPage(TemplateView):
 class ProjectDetailPage(TemplateView):
     template_name = "project-detail/index.html"
 
-    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+class ProjectListPage(TemplateView):
+    template_name = "project-list/index.html"
+
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
