@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}
+  Danh sách dự án
+{% endblock %}
+
+{% block content %}
+  {% comment %}banner{% endcomment %}
+  <div class="relative">
+    <img src="{% static 'images/banner-project-list.png' %}" alt="" srcset="" />
+    <div class="absolute top-0 w-full h-full flex items-center">
+      <div class="text-white flex flex-col items-center justify-center w-full">
+        <h1 class="uppercase">dự án</h1>
+        <div class="flex gap-3">
+          <a href="Home">Home</a>
+          <p>/</p>
+          <p>Dự án</p>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-0 w-full">
+      <div class="lg:h-[20px] h-[4px] bg-[#C4C4C4] lg:mx-[120px] mx-[22px] bg-opacity-50"></div>
+      <div class="lg:h-[50px] h-[6px] bg-white lg:mx-[88px] mx-[16px]"></div>
+    </div>
+  </div>
+
+  {% comment %} {% endcomment %}
+  <main class="py-[50px] lg:px-[118px] px-[18px]">
+    <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[32px]">
+      <div class="col-span-1 relative">
+        <img src="{% static 'images/project.png' %}" alt="" srcset="" />
+        <div class="absolute bottom-0 w-full" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);">
+          <div class="pt-[64px] pb-[32px] px-[24px]">
+            <h3 class="text-white">Mora resort Hòa Bình</h3>
+            <span class="uppercase text-main font-[500]">Hồ Dụ, Kỳ Sơn, Hòa Bình</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-span-1 relative">
+        <img src="{% static 'images/project.png' %}" alt="" srcset="" />
+        <div class="absolute bottom-0 w-full" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);">
+          <div class="pt-[64px] pb-[32px] px-[24px]">
+            <h3 class="text-white">Mora resort Hòa Bình</h3>
+            <span class="uppercase text-main font-[500]">Hồ Dụ, Kỳ Sơn, Hòa Bình</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-span-1 relative">
+        <img src="{% static 'images/project.png' %}" alt="" srcset="" />
+        <div class="absolute bottom-0 w-full" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);">
+          <div class="pt-[64px] pb-[32px] px-[24px]">
+            <h3 class="text-white">Mora resort Hòa Bình</h3>
+            <span class="uppercase text-main font-[500]">Hồ Dụ, Kỳ Sơn, Hòa Bình</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-span-1 relative">
+        <img src="{% static 'images/project.png' %}" alt="" srcset="" />
+        <div class="absolute bottom-0 w-full" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);">
+          <div class="pt-[64px] pb-[32px] px-[24px]">
+            <h3 class="text-white">Mora resort Hòa Bình</h3>
+            <span class="uppercase text-main font-[500]">Hồ Dụ, Kỳ Sơn, Hòa Bình</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-span-1 relative">
+        <img src="{% static 'images/project.png' %}" alt="" srcset="" />
+        <div class="absolute bottom-0 w-full" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);">
+          <div class="pt-[64px] pb-[32px] px-[24px]">
+            <h3 class="text-white">Mora resort Hòa Bình</h3>
+            <span class="uppercase text-main font-[500]">Hồ Dụ, Kỳ Sơn, Hòa Bình</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}
