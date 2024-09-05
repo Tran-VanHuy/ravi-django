@@ -1,93 +1,106 @@
 {% extends 'layout.html' %}
 {% load static %}
 {% block title %}
-  Danh sách dự án
+Danh sách dự án
 {% endblock %}
 
 {% block content %}
-  {% comment %}banner{% endcomment %}
-  <div class="relative">
-    <img src="{% static 'images/banner-project-list.png' %}" alt="" srcset="" />
-    <div class="absolute top-0 w-full h-full flex items-center">
-      <div class="text-white flex flex-col items-center justify-center w-full">
-        <h1 class="uppercase">dự án</h1>
-        <div class="flex gap-3">
-          <a href="Home">Home</a>
-          <p>/</p>
-          <p>Dự án</p>
-        </div>
+{% comment %}banner{% endcomment %}
+<div class="relative">
+  <img src="{% static 'images/banner-project-list.png' %}" alt="" srcset="" />
+  <div class="absolute top-0 w-full h-full flex items-center">
+    <div class="text-white flex flex-col items-center justify-center w-full">
+      <h1 class="uppercase">dự án</h1>
+      <div class="flex gap-3">
+        <a href="Home">Home</a>
+        <p>/</p>
+        <p>Dự án</p>
       </div>
     </div>
-    <div class="absolute bottom-0 w-full">
-      <div class="lg:h-[20px] h-[4px] bg-[#C4C4C4] lg:mx-[120px] mx-[22px] bg-opacity-50"></div>
-      <div class="lg:h-[50px] h-[6px] bg-white lg:mx-[88px] mx-[16px]"></div>
-    </div>
   </div>
+  <div class="absolute bottom-0 w-full">
+    <div class="lg:h-[20px] h-[4px] bg-[#C4C4C4] lg:mx-[120px] mx-[22px] bg-opacity-50"></div>
+    <div class="lg:h-[50px] h-[6px] bg-white lg:mx-[88px] mx-[16px]"></div>
+  </div>
+</div>
 
-  {% comment %} {% endcomment %}
-  <main class="pt-[50px] lg:pb-[154px] pb-[50px] lg:px-[118px] px-[18px]">
-    <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[32px]">
-      {% for item in page_obj %}
-      <div class="col-span-1 relative">
-        <img src={{ item.image }} alt="" srcset="" />
-        <div class="absolute bottom-0 w-full" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);">
+{% comment %} {% endcomment %}
+<main class="pt-[50px] lg:pb-[154px] pb-[50px] lg:px-[118px] px-[18px]">
+  <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[32px]">
+    {% for item in page_obj %}
+    <div class="col-span-1 relative">
+      <img src={{ item.image }} alt="" srcset="" />
+      <div class="absolute bottom-0 w-full"
+        style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);">
+        <a href="{% url 'project-detail' item.slug %}">
           <div class="pt-[64px] pb-[32px] px-[24px]">
             <h3 class="text-white">{{ item.name }}</h3>
             <span class="uppercase text-main font-[500]">{{ item.address }}</span>
           </div>
-        </div>
+        </a>
       </div>
-      {% endfor %}
     </div>
-    <div class="flex items-center justify-center gap-[8px] mt-[50px]">
-      {% if page_obj.has_previous %}
-        <div class="w-[48px] h-[48px] flex border-[1px] border-[#F5F5F5] rounded-[4px]">
-          <a class="w-full h-full flex items-center justify-center" href="?page={{ page_obj.previous_page_number }}">
-            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
-              <path d="M5.98023 0.319993L2.77023 3.52999L0.800234 5.48999C-0.0297656 6.31999 -0.0297656 7.66999 0.800234 8.49999L5.98023 13.68C6.66023 14.36 7.82023 13.87 7.82023 12.92V7.30999V1.07999C7.82023 0.119992 6.66023 -0.360007 5.98023 0.319993Z" fill="#BCBCBC"/>
-            </svg>
-          </a>
-        </div>
-      {% else %}
-      <div class="w-[48px] h-[48px] flex border-[1px] border-[#F5F5F5] rounded-[4px]">
-        <a class="w-full h-full flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
-            <path d="M5.98023 0.319993L2.77023 3.52999L0.800234 5.48999C-0.0297656 6.31999 -0.0297656 7.66999 0.800234 8.49999L5.98023 13.68C6.66023 14.36 7.82023 13.87 7.82023 12.92V7.30999V1.07999C7.82023 0.119992 6.66023 -0.360007 5.98023 0.319993Z" fill="#BCBCBC"/>
-          </svg>
-        </a>
-      </div>
-      {% endif %}
-
-      {% for i in page_obj.paginator.page_range %}
-        {% if page_obj.number == i %}
-        <div class="w-[48px] h-[48px] flex border-[1px] border-[#F5F5F5] rounded-[4px] group hover:bg-[#BA9256] bg-[#BA9256]">
-          <a class="w-full h-full flex items-center justify-center text-white group-hover:text-white" href="#">{{ i }}</a>
-        </div>
-        {% else %}
-        <div class="w-[48px] h-[48px] flex border-[1px] border-[#F5F5F5] rounded-[4px] group hover:bg-[#BA9256]">
-          <a class="w-full h-full flex items-center justify-center text-[#BCBCBC] group-hover:text-white" href="?page={{ i }}">{{ i }}</a>
-        </div>
-        {% endif %}
-      {% endfor %}
-
-      {% if page_obj.has_next %}
-      <div class="w-[48px] h-[48px] flex border-[1px] border-[#F5F5F5] rounded-[4px]">
-        <a class="w-full h-full flex items-center justify-center" href="?page={{ page_obj.next_page_number }}">
-          <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
-            <path d="M7.19969 5.48999L5.22969 3.51999L2.01969 0.309988C1.33969 -0.360012 0.179688 0.119988 0.179688 1.07999V7.30999V12.92C0.179688 13.88 1.33969 14.36 2.01969 13.68L7.19969 8.49999C8.02969 7.67999 8.02969 6.31999 7.19969 5.48999Z" fill="#BCBCBC"/>
-          </svg>
-        </a>
-      </div>
-      {% else %}
-      <div class="w-[48px] h-[48px] flex border-[1px] border-[#F5F5F5] rounded-[4px]">
-        <a class="w-full h-full flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
-            <path d="M7.19969 5.48999L5.22969 3.51999L2.01969 0.309988C1.33969 -0.360012 0.179688 0.119988 0.179688 1.07999V7.30999V12.92C0.179688 13.88 1.33969 14.36 2.01969 13.68L7.19969 8.49999C8.02969 7.67999 8.02969 6.31999 7.19969 5.48999Z" fill="#BCBCBC"/>
-          </svg>
-        </a>
-      </div>
-      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="flex items-center justify-center gap-[8px] mt-[50px]">
+    {% if page_obj.has_previous %}
+    <div class="w-[48px] h-[48px] flex border-[1px] border-[#F5F5F5] rounded-[4px]">
+      <a class="w-full h-full flex items-center justify-center" href="?page={{ page_obj.previous_page_number }}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
+          <path
+            d="M5.98023 0.319993L2.77023 3.52999L0.800234 5.48999C-0.0297656 6.31999 -0.0297656 7.66999 0.800234 8.49999L5.98023 13.68C6.66023 14.36 7.82023 13.87 7.82023 12.92V7.30999V1.07999C7.82023 0.119992 6.66023 -0.360007 5.98023 0.319993Z"
+            fill="#BCBCBC" />
+        </svg>
+      </a>
     </div>
-  </main>
-  {% include 'components/register.html' %}
+    {% else %}
+    <div class="w-[48px] h-[48px] flex border-[1px] border-[#F5F5F5] rounded-[4px]">
+      <a class="w-full h-full flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
+          <path
+            d="M5.98023 0.319993L2.77023 3.52999L0.800234 5.48999C-0.0297656 6.31999 -0.0297656 7.66999 0.800234 8.49999L5.98023 13.68C6.66023 14.36 7.82023 13.87 7.82023 12.92V7.30999V1.07999C7.82023 0.119992 6.66023 -0.360007 5.98023 0.319993Z"
+            fill="#BCBCBC" />
+        </svg>
+      </a>
+    </div>
+    {% endif %}
+
+    {% for i in page_obj.paginator.page_range %}
+    {% if page_obj.number == i %}
+    <div
+      class="w-[48px] h-[48px] flex border-[1px] border-[#F5F5F5] rounded-[4px] group hover:bg-[#BA9256] bg-[#BA9256]">
+      <a class="w-full h-full flex items-center justify-center text-white group-hover:text-white" href="#">{{ i }}</a>
+    </div>
+    {% else %}
+    <div class="w-[48px] h-[48px] flex border-[1px] border-[#F5F5F5] rounded-[4px] group hover:bg-[#BA9256]">
+      <a class="w-full h-full flex items-center justify-center text-[#BCBCBC] group-hover:text-white"
+        href="?page={{ i }}">{{ i }}</a>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+    <div class="w-[48px] h-[48px] flex border-[1px] border-[#F5F5F5] rounded-[4px]">
+      <a class="w-full h-full flex items-center justify-center" href="?page={{ page_obj.next_page_number }}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
+          <path
+            d="M7.19969 5.48999L5.22969 3.51999L2.01969 0.309988C1.33969 -0.360012 0.179688 0.119988 0.179688 1.07999V7.30999V12.92C0.179688 13.88 1.33969 14.36 2.01969 13.68L7.19969 8.49999C8.02969 7.67999 8.02969 6.31999 7.19969 5.48999Z"
+            fill="#BCBCBC" />
+        </svg>
+      </a>
+    </div>
+    {% else %}
+    <div class="w-[48px] h-[48px] flex border-[1px] border-[#F5F5F5] rounded-[4px]">
+      <a class="w-full h-full flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
+          <path
+            d="M7.19969 5.48999L5.22969 3.51999L2.01969 0.309988C1.33969 -0.360012 0.179688 0.119988 0.179688 1.07999V7.30999V12.92C0.179688 13.88 1.33969 14.36 2.01969 13.68L7.19969 8.49999C8.02969 7.67999 8.02969 6.31999 7.19969 5.48999Z"
+            fill="#BCBCBC" />
+        </svg>
+      </a>
+    </div>
+    {% endif %}
+  </div>
+</main>
+{% include 'components/register.html' %}
 {% endblock %}

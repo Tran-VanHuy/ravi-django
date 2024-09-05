@@ -97,12 +97,16 @@ class ItemProject(models.Model):
         verbose_name="item",
         on_delete=models.CASCADE
     )
+    slug = models.SlugField(default="", null=False)
 
     class Meta:
         db_table="item_projects"
         verbose_name="Dự án (Item)"
         verbose_name_plural="Dự án (Item)"
-
+    
+    def __str__(self) -> str:
+        return f'{self.name}'
+    
 class Recruitment(models.Model):
     name = models.CharField(max_length=255, verbose_name="name")
     title = models.CharField(max_length=255, verbose_name="title")

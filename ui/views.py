@@ -39,6 +39,17 @@ class LandingPage(TemplateView):
 
 class ProjectDetailPage(TemplateView):
     template_name = "project-detail/index.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        slug = self.kwargs['id']
+
+        project = ItemProject.objects.filter(slug=slug).first()
+        project_other = ItemProject.objects.exclude(id=project.id).all().order_by("-id")[:3]
+        
+        context["project"] = project
+        context["project_other"] = project_other
+        return context
 
 class ProjectListPage(TemplateView):
     template_name = "project-list/index.html"

@@ -1,3 +1,4 @@
+from typing import Any
 from django.contrib import admin
 from .models import * 
 # Register your models here.
@@ -42,6 +43,10 @@ class PartnerAdmin(admin.ModelAdmin):
     list_display = ["name"]
     inlines = [ItemPartnerInline]
 
+class ItemProjectAdmin(admin.ModelAdmin):
+    list_display = ["name"]
+    prepopulated_fields = {"slug": ["name"]}
+    search_fields = ['name']
 
 #   
 admin.site.register(Banner)
@@ -51,6 +56,8 @@ admin.site.register(Project, Projectadmin)
 admin.site.register(Recruitment)
 admin.site.register(NameItemRecruitment, NameRecruitmentAdmin)
 admin.site.register(Partner, PartnerAdmin)
+admin.site.register(ItemProject, ItemProjectAdmin)
+
 # 
 admin.site.unregister(Group)
 
