@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-8!alj=*vvvt(qs3isu4e_u&odksqanv)^akdr6hity3k1k=c#$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -118,15 +118,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
-
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    "static"
-]
+# STATIC_ROOT = "static"
+STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'static/media'
+
+if DEBUG:
+    STATICFILES_DIRS = [BASE_DIR / 'static']
+else:
+    STATIC_ROOT = BASE_DIR /'static'
 
 # CKEditor Settings
 CKEDITOR_UPLOAD_PATH = 'uploads/'

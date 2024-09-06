@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="padding: 0; margin: 0;">
+    <div style="width: 100%; height: 100vh; overflow: hidden;">
+        <a href="{% url 'landing-page' %}">
+            <img src="{% static 'images/404.jpg' %}" alt="" srcset="" style="width: 100%; height: 100%;" >
+        </a>
+    </div>
+</body>
+</html>

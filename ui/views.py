@@ -3,10 +3,8 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from .models import *
 from django.core.paginator import Paginator
-from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse, JsonResponse, HttpResponseBadRequest
-
-
+from django.http import JsonResponse, HttpResponseBadRequest
+from django.shortcuts import render
 
 # Create your views here.
 
@@ -92,4 +90,3 @@ def RegisterVoucher(request):
             return JsonResponse({"context": context})
 
     return HttpResponseBadRequest('Invalid request')
-
