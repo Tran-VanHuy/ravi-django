@@ -15,12 +15,22 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from ui.views import *
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', LandingPage.as_view(), name="landing-page"),
     path('du-an/<id>/', ProjectDetailPage.as_view(), name="project-detail"),
     path('du-an', ProjectListPage.as_view(), name="project-list"),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('register-voucher-ajax', RegisterVoucher, name="register-voucher-ajax")
+
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:
+    urlpatterns +=static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

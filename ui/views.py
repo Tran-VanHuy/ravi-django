@@ -3,6 +3,10 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from .models import *
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse, JsonResponse, HttpResponseBadRequest
+
+
 
 # Create your views here.
 
@@ -67,3 +71,25 @@ class ProjectListPage(TemplateView):
         page_obj = paginator.get_page(page_number)
         context['page_obj'] = page_obj
         return context
+
+def RegisterVoucher(request):
+    is_ajax = request.headers.get('X-Requested-With') == 'XMLHttpRequest'
+    if is_ajax:
+        if request.method == 'POST':
+            full_name = request.POST.get("fullName")
+            phone = request.POST.get("phone")
+            email = request.POST.get("email")
+
+            register = Register(full_name=full_name, phone=phone, email=email, status_contact=False)
+            register.save()
+
+            context = {
+                "message": "SUCCESS",
+                "status": 200,
+                "data": None
+            }
+
+            return JsonResponse({"context": context})
+
+    return HttpResponseBadRequest('Invalid request')
+

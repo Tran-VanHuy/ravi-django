@@ -1,6 +1,7 @@
 from typing import Any
 from django.db import models
 from .enums import *
+from ckeditor_uploader.fields import RichTextUploadingField
 # Create your models here.
 class Banner(models.Model):
     image = models.ImageField(upload_to="static/images", unique=True, blank=True, null=True)
@@ -25,7 +26,7 @@ class AboutMe(models.Model):
     name = models.CharField(max_length=255, blank=True, null=True, verbose_name="Name")
     title = models.CharField(max_length=255, blank=True, null=True, verbose_name="Title")
     desc = models.TextField(verbose_name="Short desc")
-    content = models.TextField(verbose_name="Content")
+    content = RichTextUploadingField(verbose_name="Content")
     slug = models.SlugField(default="", null=False)
 
     def __str__(self) -> str:
@@ -52,7 +53,7 @@ class ItemAction(models.Model):
     icon = models.TextField(verbose_name="Icon")
     title = models.CharField(max_length=255, blank=True, null=True, verbose_name="Title")
     desc = models.TextField(verbose_name="Short desc")
-    content = models.TextField(verbose_name="Content")
+    content =  RichTextUploadingField(verbose_name="Content")
     slug = models.SlugField()
     action = models.ForeignKey(
         Action,
@@ -87,7 +88,7 @@ class ItemProject(models.Model):
     image = models.FileField(upload_to="static/images", unique=True, verbose_name="image")
     name = models.CharField(max_length=255, verbose_name="name")
     address = models.CharField(max_length=255, verbose_name="address")
-    content = models.TextField(verbose_name="content")
+    content = RichTextUploadingField()
     activity = models.BooleanField(verbose_name="activity", default=True)
     item = models.ForeignKey(
         Project,
@@ -132,7 +133,7 @@ class NameItemRecruitment(models.Model):
         blank=True,
         null=True
     )
-    content = models.TextField(verbose_name="content", blank=True, null=True)
+    content = RichTextUploadingField(verbose_name="content", blank=True, null=True)
     item = models.ForeignKey(
         Recruitment,
         null=True,
@@ -200,6 +201,24 @@ class ItemPartner(models.Model):
     
     def __str__(self) -> str:
         return f'{self.link}'
+
+class Register(models.Model):
+    full_name = models.CharField(max_length=255, verbose_name="Full name")
+    phone = models.CharField(max_length=255, verbose_name="Phone")
+    email = models.EmailField(max_length=255, verbose_name="Email")
+    status_contact = models.BooleanField(verbose_name="Status contact", default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table="register_voucher"
+        verbose_name="Đăng ký nhận voucher"
+        verbose_name_plural="Đăng ký nhận voucher"
+    
+    def __str__(self) -> str:
+        return f'{self.full_name}'
+
+
 
 
 

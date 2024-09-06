@@ -10,6 +10,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="{% static 'js/tailwind.config.js'%}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.css" rel="stylesheet">
     {% block static %}
     {% endblock %}
 </head>
@@ -150,5 +152,10 @@
         </div>
     </footer>
 </body>
+
+<script>
+    const urlRegisterVoucher = "{% url 'register-voucher-ajax' %}"
+</script>
+<script src="{% static 'js/registerVoucher.js'%}"></script>
 
 </html>
