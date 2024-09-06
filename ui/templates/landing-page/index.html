@@ -30,8 +30,7 @@ Trang chủ
 
 <!-- Về chúng tôi -->
 <main class="lg:py-[150px] py-[50px] lg:px-[122px] px-[16px]">
-  <div class="lg:flex lg:justify-between lg:items-center lg:gap-[104px]">
-    
+  <div class="lg:flex lg:justify-between lg:items-center lg:gap-[104px]" id="ve-chung-toi">
     <img src={{ about_me.image }} alt="" srcset="" class="lg:mb-[0px] mb-[36px] lg:h-[100vh]" />
     <div class="flex-1 text-center">
       <div class="lg:mb-[50px] mb-[24px]">
@@ -47,7 +46,7 @@ Trang chủ
 <!-- Lĩnh vực hoạt động -->
 <main class="relative">
   <img src="{% static 'images/Rectangle 336.png' %}" alt="" class="absolute w-full h-full" />
-  <div class="lg:py-[150px] lg:px-[120px] py-[50px] px-[16px] relative">
+  <div class="lg:py-[150px] lg:px-[120px] py-[50px] px-[16px] relative" id="linh-vuc-hoat-dong">
     <div class="lg:mb-[50px] mb-[36px]">
       <div class="text-center">
         <div class="uppercase text-main font-[500]">{{ actions.name }}</div>
@@ -148,7 +147,7 @@ Trang chủ
 <!-- Các dự án -->
 <main class="relative overflow-hidden">
   <img src="{% static 'images/landing-img-49 1.png' %}" alt="" srcset="" class="absolute w-full h-full" />
-  <div class="lg:py-[150px] py-[60px] relative z-10">
+  <div class="lg:py-[150px] py-[60px] relative z-10" id="du-an">
     <div class="uppercase text-center lg:mb-[50px] mb-[36px]">
       <div class="text-main font-[500] max-[600px]:text-[14px]">{{ project.name }}</div>
       <h2 class="text-blackMain px-[16px]">{{ project.title }}</h2>
@@ -160,20 +159,24 @@ Trang chủ
           <div class="relative">
             <img src={{ item.image }} alt="" srcset=""
               class="w-full lg:h-[700px] h-[400px]" />
+           <a href="{% url 'project-detail' item.slug %}">
             <div class="absolute bottom-0 w-full px-[24px] pt-[64px] pb-[32px]"
               style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);">
               <h3 class="text-white">{{ item.name }}</h3>
               <p class="text-main uppercase font-[500]">{{ item.address }}</p>
             </div>
+           </a>
           </div>
         </div>
         {% endfor %}
       </div>
     </div>
     <div class="flex justify-center items-center">
-      <button
+      <a href="{% url 'project-list' %}">
+        <button
         class="inline uppercase text-grayMain font-bold px-[32px] h-[50px] rounded-[25px] border-[2px] border-main">xem
         tất cả các dự án</button>
+      </a>
     </div>
   </div>
 </main>
@@ -181,7 +184,7 @@ Trang chủ
 <main class="lg:grid grid-cols-2 gap-[80px] bg-[#F9F8F5]">
   <img src={{ recruitment.image }} alt="" srcset=""
     class="lg:h-full h-[50vh] lg:w-auto w-full lg:w-auto lg:mb-0 col-span-1" />
-  <div class="col-span-1 lg:pr-[120px] lg:pl-0 pr-[16px] pl-[16px] pb-[50px]">
+  <div class="col-span-1 lg:pr-[120px] lg:pl-0 pr-[16px] pl-[16px] pb-[50px]" id="tuyen-dung">
     <div class="uppercase lg:mb-[50px] mb-[36px] lg:pt-[150px] pt-[50px]">
       <div class="text-main font-[500]">tuyển dụng</div>
       <h2 class="text-[#181C23]">làm việc tại ravi</h2>
