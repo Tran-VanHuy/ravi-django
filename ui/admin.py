@@ -31,11 +31,9 @@ class AboutMeAdmin(admin.ModelAdmin):
 
 class ActionsAdmin(admin.ModelAdmin):
     list_display = ["name", "title"]
-    inlines = [ItemActionsInline]
 
 class Projectadmin(admin.ModelAdmin):
     list_display = ["name", "title"]
-    inlines = [ItemProjectsInline]
 
 class NameRecruitmentAdmin(admin.ModelAdmin):
     list_display = ["name"]
