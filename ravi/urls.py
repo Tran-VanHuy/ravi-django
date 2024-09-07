@@ -23,5 +23,6 @@ urlpatterns = [
     path('', LandingPage.as_view(), name="landing-page"),
     path('du-an/<id>', ProjectDetailPage.as_view(), name="project-detail"),
     path('du-an', ProjectListPage.as_view(), name="project-list"),
-    path('tuyen-dung', JobListPage.as_view(), name="job-list")
+    path('tuyen-dung', JobListPage.as_view(), name="job-list"),
+    path('tuyen-dung/<id>', JobOpening.as_view(), name="job-opening")
 ]
