@@ -19,5 +19,6 @@ from django.urls import path
 from ui.views import *
 
 urlpatterns = [
-    path('admin/', admin.site.urls)
+    path('admin/', admin.site.urls),
+    path('tuyen-dung/<id>', JobOpening.as_view(), name="job-opening")
 ]
