@@ -110,7 +110,7 @@ class ItemProject(models.Model):
     
 class Recruitment(models.Model):
     name = models.CharField(max_length=255, verbose_name="name")
-    title = models.CharField(max_length=255, verbose_name="title")
+    title = models.TextField(verbose_name="title")
     image = image = models.FileField(upload_to="static/images", unique=True, verbose_name="image")
 
     class Meta:
