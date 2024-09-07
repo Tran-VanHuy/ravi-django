@@ -21,3 +21,6 @@ class ProjectListPage(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
+        
+class JobListPage(TemplateView):
+    template_name = "job-list/index.html"
