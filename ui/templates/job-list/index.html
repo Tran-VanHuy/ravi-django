@@ -1,0 +1,91 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}
+  Tuyển dụng
+{% endblock %}
+
+{% block content %}
+  {% comment %}banner{% endcomment %}
+  <div class="relative">
+    <img src="{% static 'images/unsplash_ilHo9qgDEGY-job-list.png' %}" alt="" srcset="" />
+    <div class="absolute top-0 w-full h-full flex items-center">
+      <div class="text-white flex flex-col items-center justify-center w-full">
+        <h1 class="uppercase">tuyển dụng</h1>
+        <div class="flex gap-3">
+          <a href="Home">Home</a>
+          <p>/</p>
+          <p>Tuyển dụng</p>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-0 w-full">
+      <div class="lg:h-[20px] h-[4px] bg-[#C4C4C4] lg:mx-[120px] mx-[22px] bg-opacity-50"></div>
+      <div class="lg:h-[50px] h-[6px] bg-white lg:mx-[88px] mx-[16px]"></div>
+    </div>
+  </div>
+
+  {% comment %} {% endcomment %}
+  <main class="py-[50px] lg:px-[118px] px-[16px]">
+    <div class="text-center lg:mb-[50px] mb-[36px]">
+      <h2 class="uppercase lg:mb-[27px] mb-[24px]">Các vị trí tuyển dụng hot</h2>
+      <p class="max-[600px]:px-[16px] px-[5%]">Ravi định hướng phát triển trở thành đơn vị đi tiên phong trong lĩnh vực bất động sản và phát triển hệ thống thẻ nghỉ dưỡng với mục tiêu phát triển các dự án nghỉ dưỡng theo hướng đi mới, phát triển du lịch tiêu chuẩn 5 sao kết hợp với việc bảo tồn tự nhiên. Và chúng tôi đang tìm kiếm nhân tài gia nhập RAVI</p>
+    </div>
+
+    <div>
+      <table class="w-full">
+        <tbody>
+          <tr class="border-t-[1px] border-[#F5F5F5]">
+            <td class="py-[32px]">
+              <p class="text-main font-[500]">fulltime</p>
+              <h3 class="text-blackMain">Nhân viên đại diện kinh doanh</h3>
+            </td>
+            <td class="text-[#666666]">
+              <p class="text-[18px]">Mức lương</p>
+              <span class="font-[700] text-[21px]">15~20tr</span>
+            </td>
+            <td class="text-[#666666]">
+              <p class="text-[18px]">Số lượng</p>
+              <span class="font-[700] text-[21px]">2</span>
+            </td>
+            <td class="text-[#666666]">
+              <p class="text-[18px]">Khu vực</p>
+              <span class="font-[700] text-[21px]">Hà Nội</span>
+            </td>
+            <td class="text-[#666666]">
+              <p class="text-[18px]">Ngày hết hạn</p>
+              <span class="font-[700] text-[21px]">30/04/2022</span>
+            </td>
+            <td>
+              <button class="w-[207px] h-[50px] rounded-[25px] border-[2px] border-[#BA9256] font-[700] text-[#666666] uppercase">ứng tuyển ngay</button>
+            </td>
+          </tr>
+          <tr class="border-t-[1px] border-[#F5F5F5]">
+            <td class="py-[32px]">
+              <p class="text-main font-[500]">fulltime</p>
+              <h3 class="text-blackMain">Nhân viên đại diện kinh doanh</h3>
+            </td>
+            <td class="text-[#666666]">
+              <p class="text-[18px]">Mức lương</p>
+              <span class="font-[700] text-[21px]">15~20tr</span>
+            </td>
+            <td class="text-[#666666]">
+              <p class="text-[18px]">Số lượng</p>
+              <span class="font-[700] text-[21px]">2</span>
+            </td>
+            <td class="text-[#666666]">
+              <p class="text-[18px]">Khu vực</p>
+              <span class="font-[700] text-[21px]">Hà Nội</span>
+            </td>
+            <td class="text-[#666666]">
+              <p class="text-[18px]">Ngày hết hạn</p>
+              <span class="font-[700] text-[21px]">30/04/2022</span>
+            </td>
+            <td>
+              <button class="w-[207px] h-[50px] rounded-[25px] border-[2px] border-[#BA9256] font-[700] text-[#666666] uppercase">ứng tuyển ngay</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+{% endblock %}
