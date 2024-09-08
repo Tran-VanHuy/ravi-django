@@ -37,6 +37,7 @@ class Projectadmin(admin.ModelAdmin):
 
 class NameRecruitmentAdmin(admin.ModelAdmin):
     list_display = ["name"]
+    prepopulated_fields = {"slug": ["name"]}
     inlines = [ItemNameItemRecruitmentInlien]
 
 class PartnerAdmin(admin.ModelAdmin):

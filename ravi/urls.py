@@ -31,7 +31,6 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('register-voucher-ajax', RegisterVoucher, name="register-voucher-ajax"),
     path('tuyen-dung', JobListPage.as_view(), name="job-list"),
-    path('admin/', admin.site.urls),
     path('tuyen-dung/<id>', JobOpening.as_view(), name="job-opening")
 ]
 

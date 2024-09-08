@@ -36,20 +36,22 @@
         <tbody>
           {% for item in item_recruitment %}
             <tr class="border-t-[1px] border-[#F5F5F5] hover:bg-[#F9F8F5]">
-              <td class="py-[32px]">
+              <td class="mr-3 py-[32px]">
                 <p class="text-main font-[500]">{{ item.work }}</p>
-                <h3 class="text-blackMain">{{ item.name }}</h3>
+                <h3 class="text-blackMain line-clamp-2">{{ item.name }}</h3>
               </td>
-              {% for in_item in item.name_item_recruitment.all %}
-                <td class="text-[#666666]">
+              <td class="text-[#666666] flex py-[32px] gap-[100px] mr-3">
+                {% for in_item in item.name_item_recruitment.all %}
                   {% if forloop.counter <= 4 %}
-                    <p class="text-[18px]">{{ in_item.name }}</p>
-                    <span class="font-[700] text-[21px] text-grayMain">{{ in_item.content }}</span>
+                    <div>
+                      <p class="text-[18px] text-nowrap">{{ in_item.name }}</p>
+                      <span class="font-[700] text-[21px] text-grayMain text-nowrap">{{ in_item.content }}</span>
+                    </div>
                   {% endif %}
-                </td>
-              {% endfor %}
+                {% endfor %}
+              </td>
               <td>
-                <button class="w-[207px] h-[50px] rounded-[25px] border-[2px] border-[#BA9256] font-[700] text-[#666666] uppercase">ứng tuyển ngay</button>
+                <a href="{% url 'job-opening' item.slug %}"><button class="w-[207px] h-[50px] rounded-[25px] border-[2px] border-[#BA9256] font-[700] text-[#666666] uppercase">ứng tuyển ngay</button></a>
               </td>
             </tr>
           {% endfor %}
@@ -73,7 +75,7 @@
               {% endif %}
             {% endfor %}
           </div>
-          <button class="w-[207px] h-[50px] rounded-[25px] border-[2px] border-[#BA9256] font-[700] text-[#666666] uppercase">ứng tuyển ngay</button>
+          <a href="{% url 'job-opening' item.slug %}"><button class="w-[207px] h-[50px] rounded-[25px] border-[2px] border-[#BA9256] font-[700] text-[#666666] uppercase">ứng tuyển ngay</button></a>
         </div>
       {% endfor %}
     </div>

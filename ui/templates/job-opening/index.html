@@ -14,7 +14,7 @@
         <div class="flex gap-3">
           <a href="/">Home</a>
           <p>/</p>
-          <a href="#">Tuyển dụng</a>
+          <a href="{% url 'job-list' %}">Tuyển dụng</a>
           <p>/</p>
           <p>Nhân viên kinh doanh</p>
         </div>
@@ -30,7 +30,7 @@
   <main class="pt-[50px] lg:px-[118px] px-[16px] lg:pb-[150px] pb-[50px]">
     <div class="flex lg:flex-row flex-col lg:gap-[87px] gap-[61px] justify-between">
       <div class="flex-fill">
-        <div class="mb-[48px]">Nội dung</div>
+        <div class="mb-[48px]">{{ recruitment.content|safe }}</div>
         <div class="flex items-center gap-[32px]">
           <h4 class="text-[#BCBCBC]">Chia sẻ</h4>
           <div class="flex gap-[16px]">
@@ -63,26 +63,12 @@
       </div>
       <div class="lg:p-[50px] p-[24px] bg-[#F9F8F5]">
         <div class="flex flex-col gap-[32px]">
-          <div class="text-grayMain">
-            <p class="text-[18px]">Số lượng</p>
-            <p class="text-[21px] font-bold">2</p>
-          </div>
-          <div class="text-grayMain">
-            <p class="text-[18px]">Khu vực</p>
-            <p class="text-[21px] font-bold">Hà Nội</p>
-          </div>
-          <div class="text-grayMain">
-            <p class="text-[18px]">Trình độ</p>
-            <p class="text-[21px] font-bold">Không yêu cầu</p>
-          </div>
-          <div class="text-grayMain">
-            <p class="text-[18px]">Hình thức</p>
-            <p class="text-[21px] font-bold">Toàn thời gian cố định</p>
-          </div>
-          <div class="text-grayMain">
-            <p class="text-[18px]">Ngày hết hạn</p>
-            <p class="text-[21px] font-bold">30/04/2022</p>
-          </div>
+          {% for item in recruitment.name_item_recruitment.all %}
+            <div class="text-grayMain">
+              <p class="text-[18px]">{{ item.name }}</p>
+              <p class="text-[21px] font-bold">{{ item.content }}</p>
+            </div>
+          {% endfor %}
           <button class="w-[276px] h-[50px] bg-[#BA9256] uppercase rounded-full text-white font-bold">ứng tuyển ngay</button>
         </div>
       </div>

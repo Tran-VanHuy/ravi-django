@@ -134,6 +134,7 @@ class NameItemRecruitment(models.Model):
         null=True
     )
     content = RichTextUploadingField(verbose_name="content", blank=True, null=True)
+    slug = models.SlugField(default="", null=False)
     item = models.ForeignKey(
         Recruitment,
         null=True,
@@ -161,6 +162,7 @@ class ItemNameItemRecruitment(models.Model):
         related_name="name_item_recruitment",
         on_delete=models.CASCADE
     )
+    show_job_list = models.BooleanField(default=False, verbose_name="Show at page job list")
 
     class Meta:
         db_table="item_name_item_recruitment"
