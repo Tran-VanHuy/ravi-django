@@ -83,10 +83,114 @@
             <p class="text-[18px]">Ngày hết hạn</p>
             <p class="text-[21px] font-bold">30/04/2022</p>
           </div>
-          <button class="w-[276px] h-[50px] bg-[#BA9256] uppercase rounded-full text-white font-bold">ứng tuyển ngay</button>
+          <button id="open-modal" type="button" class="w-[276px] h-[50px] bg-[#BA9256] uppercase rounded-full text-white font-bold">ứng tuyển ngay</button>
         </div>
       </div>
     </div>
   </main>
+  <div class="fixed inset-0 flex items-center justify-center hidden z-[90]" id="modal" style="background: #00000099;">
+    <div class="bg-white p-5 rounded-lg shadow-lg w-[60vw] h-[90vh] overflow-y-scroll">
+      <div class="flex justify-end mb-[4px]">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="w-[24px] h-[24px] fill-[#BCBCBC]">
+          <!-- !Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
+          <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+        </svg>
+      </div>
+      <div class="uppercase text-center mb-[36px]">
+        <div class="text-main mb-[10px] font-[500]">vị trí nhân viên kinh doanh</div>
+        <h2>Thông Tin Ứng Tuyển</h2>
+      </div>
+      <div class="grid grid-cols-2 gap-[24px] mb-[24px]">
+        <div class="col-span-1">
+          <label for="">
+            <p class="font-[500] text-[#BCBCBC] mb-[4px] uppercase ml-4">
+              Họ tên <span class="text-main">*</span>
+            </p>
+            <input type="text" placeholder="Họ tên" class="px-[16px] w-full h-[50px] rounded-full border-[1px] border-[#BCBCBC]" />
+          </label>
+        </div>
+        <div class="col-span-1">
+          <label for="">
+            <p class="font-[500] text-[#BCBCBC] mb-[4px] uppercase ml-4">Ngày sinh</p>
+            <input type="date" placeholder="Ngày sinh" class="px-[16px] w-full h-[50px] rounded-full border-[1px] border-[#BCBCBC]" />
+          </label>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-[24px] mb-[24px]">
+        <div class="col-span-1">
+          <label for="">
+            <p class="font-[500] text-[#BCBCBC] mb-[4px] uppercase ml-4">
+              Số điện thoại <span class="text-main">*</span>
+            </p>
+            <input type="text" placeholder="Số điện thoại của bạn" class="px-[16px] w-full h-[50px] rounded-full border-[1px] border-[#BCBCBC]" />
+          </label>
+        </div>
+        <div class="col-span-1">
+          <label for="">
+            <p class="font-[500] text-[#BCBCBC] mb-[4px] uppercase ml-4">
+              Email <span class="text-main">*</span>
+            </p>
+            <input type="email" placeholder="Địa chỉ email của bạn" class="px-[16px] w-full h-[50px] rounded-full border-[1px] border-[#BCBCBC]" />
+          </label>
+        </div>
+      </div>
+      <div class="mb-[24px]">
+        <div>
+          <label for="">
+            <p class="font-[500] text-[#BCBCBC] mb-[4px] uppercase ml-4">
+              Địa chỉ <span class="text-main">*</span>
+            </p>
+            <select name="" id="" class="px-[16px] w-full h-[50px] rounded-full border-[1px] border-[#BCBCBC]">
+              <option>Chọn địa điểm</option>
+            </select>
+          </label>
+        </div>
+      </div>
+      <div class="mb-[24px]">
+        <div>
+          <p class="font-[500] text-[#BCBCBC] mb-[4px] uppercase ml-4">
+            RESUME/CV <span class="text-main">*</span>
+          </p>
+          <label for="CV" class="cursor-pointer">
+            <div class="px-[16px] w-full h-[50px] rounded-full border-[1px] border-[#BCBCBC] relative">
+              <div class="absolute right-0 h-full flex items-center justify-center mr-[16px]">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="w-[20px] fill-[#BCBCBC]">
+                  <!-- !Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
+                  <path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
+                </svg>
+              </div>
+            </div>
+            <input id="CV" type="file" name="" hidden />
+          </label>
+        </div>
+      </div>
+      <div class="mb-[24px]">
+        <label for="">
+          <p class="font-[500] text-[#BCBCBC] mb-[4px] uppercase ml-4">Thư ứng tuyển</p>
+          <textarea name="" id="" placeholder="Tin nhắn của bạn" class="p-[16px] min-h-[101px] w-full border-[1px] border-[#BCBCBC] rounded"></textarea>
+        </label>
+      </div>
+      <div class="flex justify-center">
+        <button class="bg-main text-white px-[32px] py-2 rounded-full uppercase font-[700]" id="close-modal">Nộp hồ sơ</button>
+      </div>
+    </div>
+  </div>
+
   {% include 'components/register.html' %}
+  <script>
+    // Lấy các phần tử modal và các nút
+    const modal = document.getElementById('modal')
+    const openModal = document.getElementById('open-modal')
+    const closeModal = document.getElementById('close-modal')
+    
+    // Sự kiện mở modal
+    openModal.addEventListener('click', function () {
+      modal.classList.remove('hidden')
+    })
+    
+    // Sự kiện đóng modal
+    closeModal.addEventListener('click', function () {
+      modal.classList.add('hidden')
+    })
+  </script>
 {% endblock %}
