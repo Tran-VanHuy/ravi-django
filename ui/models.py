@@ -2,6 +2,7 @@ from typing import Any
 from django.db import models
 from .enums import *
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.utils.text import slugify
 # Create your models here.
 class Banner(models.Model):
     image = models.ImageField(upload_to="static/images", unique=True, blank=True, null=True)
@@ -27,15 +28,24 @@ class AboutMe(models.Model):
     title = models.CharField(max_length=255, blank=True, null=True, verbose_name="Title")
     desc = models.TextField(verbose_name="Short desc")
     content = RichTextUploadingField(verbose_name="Content")
-    slug = models.SlugField(default="", null=False)
+    slug = models.SlugField(default="", null=False, allow_unicode=True)
 
     def __str__(self) -> str:
         return f'{self.name} - {self.title}'
     
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        if not self.slug:
+            slug_str = f"{self.title}"
+            self.slug = slugify(slug_str, allow_unicode=True)
+        super(AboutMe, self).save(*args, **kwargs)
+        
     class Meta:
         db_table="abouts"
         verbose_name="Về chúng tôi"
         verbose_name_plural="Về chúng tôi"
+    
+
 
 class Action(models.Model):
     name = models.CharField(max_length=255, blank=True, null=True, verbose_name="Name")
@@ -54,7 +64,7 @@ class ItemAction(models.Model):
     title = models.CharField(max_length=255, blank=True, null=True, verbose_name="Title")
     desc = models.TextField(verbose_name="Short desc")
     content =  RichTextUploadingField(verbose_name="Content")
-    slug = models.SlugField()
+    slug = models.SlugField(allow_unicode=True)
     action = models.ForeignKey(
         Action,
         related_name="action",
@@ -65,6 +75,13 @@ class ItemAction(models.Model):
 
     def __str__(self) -> str:
         return f'{self.title}'
+    
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        if not self.slug:
+            slug_str = f"{self.title}"
+            self.slug = slugify(slug_str, allow_unicode=True)
+        super(ItemAction, self).save(*args, **kwargs)
     
     class Meta:
         db_table="item_actions"
@@ -98,7 +115,13 @@ class ItemProject(models.Model):
         verbose_name="item",
         on_delete=models.CASCADE
     )
-    slug = models.SlugField(default="", null=False)
+    slug = models.SlugField(default="", null=False, allow_unicode=True)
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        if not self.slug:
+            slug_str = f"{self.name}"
+            self.slug = slugify(slug_str, allow_unicode=True)
+        super(ItemProject, self).save(*args, **kwargs)
 
     class Meta:
         db_table="item_projects"
@@ -107,6 +130,7 @@ class ItemProject(models.Model):
     
     def __str__(self) -> str:
         return f'{self.name}'
+    
     
 class Recruitment(models.Model):
     name = models.CharField(max_length=255, verbose_name="name")
@@ -134,7 +158,7 @@ class NameItemRecruitment(models.Model):
         null=True
     )
     content = RichTextUploadingField(verbose_name="content", blank=True, null=True)
-    slug = models.SlugField(default="", null=False)
+    slug = models.SlugField(default="", null=False, allow_unicode=True)
     item = models.ForeignKey(
         Recruitment,
         null=True,
@@ -150,6 +174,13 @@ class NameItemRecruitment(models.Model):
     
     def __str__(self) -> str:
         return f'{self.name}'
+    
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        if not self.slug:
+            slug_str = f"{self.name}"
+            self.slug = slugify(slug_str, allow_unicode=True)
+        super(NameItemRecruitment, self).save(*args, **kwargs)
 
 class ItemNameItemRecruitment(models.Model):
     name = models.CharField(max_length=255, verbose_name="name")

@@ -10,13 +10,13 @@
     <img src="{% static 'images/unsplash_1K8pIbIrhkQ_td.png' %}" alt="" srcset="" class="lg:h-[900px] h-[520px]" />
     <div class="absolute top-0 w-full h-full flex items-center">
       <div class="text-white flex flex-col items-center justify-center w-full">
-        <h1 class="uppercase text-center">Nhân viên kinh doanh</h1>
+        <h1 class="uppercase text-center">{{ recruitment.name }}</h1>
         <div class="flex gap-3">
           <a href="/">Home</a>
           <p>/</p>
           <a href="{% url 'job-list' %}">Tuyển dụng</a>
           <p>/</p>
-          <p>Nhân viên kinh doanh</p>
+          <p>{{ recruitment.name }}</p>
         </div>
       </div>
     </div>

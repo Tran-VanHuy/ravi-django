@@ -204,7 +204,7 @@ Trang chủ
             {% endfor %}
           </div>
         </div>
-        <a href="#" class="text-main font-bold uppercase lg:hidden group-hover:block whitespace-nowrap">ứng tuyển
+        <a href="{% url 'job-opening' item.slug %}" class="text-main font-bold uppercase lg:hidden group-hover:block whitespace-nowrap">ứng tuyển
           ngay</a>
       </div>
       {% endfor %}
