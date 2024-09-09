@@ -6,8 +6,7 @@ from django.http import JsonResponse, HttpResponseBadRequest
 from django.shortcuts import render
 from django.db.models import Prefetch
 from django.shortcuts import get_object_or_404
-
-
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
@@ -73,6 +72,7 @@ class ProjectListPage(TemplateView):
         context['page_obj'] = page_obj
         return context
 
+@csrf_exempt
 def RegisterVoucher(request):
     is_ajax = request.headers.get('X-Requested-With') == 'XMLHttpRequest'
     if is_ajax:

@@ -67,7 +67,7 @@ class RegisterAdmin(admin.ModelAdmin):
 
 class BannerAdmin(admin.ModelAdmin):
     list_display = ["image_tag", "page"]  # Sử dụng tên khác cho phương thức
-
+    list_filter = ["page"]
     def image_tag(self, obj):
         if obj.image:
             return mark_safe(f'<img src="/{obj.image}" width="100" height="50" />')

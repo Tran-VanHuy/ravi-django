@@ -36,11 +36,14 @@ $(document).ready(function() {
                 email,
                 csrfmiddlewaretoken: csrftoken
             },
-            success: (res) => {
+            headers: {
+                'X-CSRFToken': csrftoken
+            },
+            success: () => {
 
                 toastr.success('Gửi thông thông tin thành công...!')
             },
-            error: (error) => {
+            error: () => {
 
                 toastr.error('Gửi thông thông tin thất bại...!')
             } 
