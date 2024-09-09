@@ -5,6 +5,8 @@ from django.core.paginator import Paginator
 from django.http import JsonResponse, HttpResponseBadRequest
 from django.shortcuts import render
 from django.db.models import Prefetch
+from django.shortcuts import get_object_or_404
+
 
 
 # Create your views here.
@@ -127,9 +129,36 @@ class JobOpening(TemplateView):
     def get_context_data(self, **kwargs) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
         slug = self.kwargs['id']
+
         recruitment = NameItemRecruitment.objects.prefetch_related(
             "name_item_recruitment"
         ).filter(slug=slug).first()
+        area = Area.objects.all().order_by("-id")
+
         context["recruitment"] = recruitment
+        context["area"] = area
         return context
+
+    def post(self, request, *args, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        full_name = request.POST.get("full_name")
+        date_of_birth = request.POST.get("date_of_birth")
+        phone = request.POST.get("phone")
+        email = request.POST.get("email")
+        area = request.POST.get("area")
+        resume_cv = request.FILES.get("file_cv")
+        application_letter = request.POST.get("application_letter")
+        recruitment_id = request.POST.get("recruitment")
+
+        recruitment = get_object_or_404(NameItemRecruitment, pk=recruitment_id)
+
+        apply = Apply(full_name=full_name, date_of_birth=date_of_birth, phone=phone, email=email, area=area, resume_cv=resume_cv, application_letter=application_letter, recruitment=recruitment)
+        apply.save()
+
+        if apply:
+            context["message"]="Ứng tuyển thành công...!"
+        
+        context["recruitment"] = recruitment
+        return self.render_to_response(context)
     

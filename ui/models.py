@@ -39,14 +39,12 @@ class AboutMe(models.Model):
             slug_str = f"{self.title}"
             self.slug = slugify(slug_str, allow_unicode=True)
         super(AboutMe, self).save(*args, **kwargs)
-        
+
     class Meta:
         db_table="abouts"
         verbose_name="Về chúng tôi"
         verbose_name_plural="Về chúng tôi"
     
-
-
 class Action(models.Model):
     name = models.CharField(max_length=255, blank=True, null=True, verbose_name="Name")
     title = models.CharField(max_length=255, blank=True, null=True, verbose_name="Title")
@@ -100,7 +98,6 @@ class Project(models.Model):
     def __str__(self):
         return f'{self.name}'
 
-
 class ItemProject(models.Model):
     image = models.FileField(upload_to="static/images", unique=True, verbose_name="image")
     name = models.CharField(max_length=255, verbose_name="name")
@@ -130,7 +127,6 @@ class ItemProject(models.Model):
     
     def __str__(self) -> str:
         return f'{self.name}'
-    
     
 class Recruitment(models.Model):
     name = models.CharField(max_length=255, verbose_name="name")
@@ -215,7 +211,6 @@ class Partner(models.Model):
     def __str__(self) -> str:
         return f'{self.name}'
 
-
 class ItemPartner(models.Model):
     image = models.FileField(upload_to="static/images", unique=True, verbose_name="image")
     link = models.TextField(verbose_name="link")
@@ -250,6 +245,52 @@ class Register(models.Model):
     
     def __str__(self) -> str:
         return f'{self.full_name}'
+
+class Area(models.Model):
+    name = models.CharField(max_length=255, verbose_name="name")
+
+    class Meta:
+        db_table="areas"
+        verbose_name="Địa chỉ"
+        verbose_name_plural="Địa chỉ"
+    
+    def __str__(self) -> str:
+        return f"{self.name}"
+
+class Apply(models.Model):
+    full_name = models.CharField(max_length=255, verbose_name="Full name")
+    date_of_birth = models.CharField(max_length=255, blank=True, null=True, verbose_name="Date of birth")
+    phone = models.CharField(max_length=255, verbose_name="Phone")
+    email = models.EmailField(max_length=255, verbose_name="Email")
+    area = models.CharField(max_length=255, verbose_name="Area")
+    resume_cv = models.FileField(upload_to="static/cv", unique=True, verbose_name="Resume/CV")
+    application_letter = models.TextField(verbose_name="Application letter")
+    recruitment = models.ForeignKey(
+        NameItemRecruitment,
+        blank=True,
+        null=True,
+        related_name="name_item_Recruitment",
+        verbose_name="recruitment",
+        on_delete=models.SET_NULL
+    )
+    status_contact = models.BooleanField(default=False, verbose_name="Status Contact")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Created at")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="Updated at")
+
+    class Meta:
+        db_table="applies"
+        verbose_name="Ứng tuyển"
+        verbose_name_plural="Ứng tuyển"
+    
+    def __str__(self) -> str:
+        return f"{self.full_name}"
+
+
+
+
+
+
+
 
 
 

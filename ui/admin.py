@@ -7,6 +7,14 @@ from django.utils.html import mark_safe
 from django.contrib.auth.models import Group
 
 # Inline
+class ApplyInline(admin.TabularInline):
+    model = Apply
+    extra = 0
+    exclude = ["date_of_birth", "application_letter", "area"]
+    readonly_fields = ["full_name", "phone", "email", "resume_cv", "recruitment"]
+
+    def has_add_permission(self, request: HttpRequest, obj=None) -> bool:
+        return False
 
 class ItemPartnerInline(admin.TabularInline):
     model=ItemPartner
@@ -38,7 +46,8 @@ class Projectadmin(admin.ModelAdmin):
 class NameRecruitmentAdmin(admin.ModelAdmin):
     list_display = ["name"]
     prepopulated_fields = {"slug": ["name"]}
-    inlines = [ItemNameItemRecruitmentInlien]
+    search_fields = ["name"]
+    inlines = [ItemNameItemRecruitmentInlien, ApplyInline]
 
 class PartnerAdmin(admin.ModelAdmin):
     list_display = ["name"]
@@ -65,6 +74,13 @@ class BannerAdmin(admin.ModelAdmin):
         return "No Image"
 
     image_tag.short_description = 'Image'
+
+class ApplyAdmin(admin.ModelAdmin):
+    list_display = ["full_name", "phone", "resume_cv", "recruitment", "status_contact"]
+    readonly_fields = ["full_name", "date_of_birth", "phone", "email", "area", "resume_cv", "application_letter", "recruitment"]
+    list_filter = ['recruitment', "status_contact"]
+    def has_add_permission(self, request: HttpRequest) -> bool:
+        return False
 #   
 admin.site.register(Banner, BannerAdmin)
 admin.site.register(AboutMe, AboutMeAdmin)
@@ -76,7 +92,8 @@ admin.site.register(Partner, PartnerAdmin)
 admin.site.register(ItemProject, ItemProjectAdmin)
 admin.site.register(Register, RegisterAdmin)
 admin.site.register(ItemAction)
-
+admin.site.register(Area)
+admin.site.register(Apply, ApplyAdmin)
 # 
 admin.site.unregister(Group)
 
