@@ -1,10 +1,11 @@
 from typing import Any
-from django.shortcuts import render
 from django.views.generic import TemplateView
 from .models import *
 from django.core.paginator import Paginator
 from django.http import JsonResponse, HttpResponseBadRequest
 from django.shortcuts import render
+from django.db.models import Prefetch
+
 
 # Create your views here.
 
@@ -90,3 +91,45 @@ def RegisterVoucher(request):
             return JsonResponse({"context": context})
 
     return HttpResponseBadRequest('Invalid request')
+
+class JobListPage(TemplateView):
+    template_name = "job-list/index.html"
+
+    def get_context_data(self, **kwargs) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        recruitment = Recruitment.objects.all().order_by("-id").first()
+        item_recruitment = NameItemRecruitment.objects.prefetch_related(
+            Prefetch("name_item_recruitment",
+            queryset = ItemNameItemRecruitment.objects.filter(show_job_list=True))
+        ).all().order_by("-id")
+
+        pageSize = 6
+
+        if self.request.GET.get("page_size") and pageSize > 6:
+            pageSize = self.request.GET.get("page_size")
+
+        paginator = Paginator(item_recruitment, pageSize)
+        page_obj = paginator.get_page(1)
+
+        data_last = paginator.count - len(page_obj.object_list)
+        page_size_last = len(page_obj.object_list) + data_last
+
+        context["recruitment"] = recruitment 
+        context["item_recruitment"] = page_obj
+        context["data_last"] = data_last
+        context["page_size_last"] = page_size_last
+        return context
+    
+
+class JobOpening(TemplateView):
+    template_name = "job-opening/index.html"
+
+    def get_context_data(self, **kwargs) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        slug = self.kwargs['id']
+        recruitment = NameItemRecruitment.objects.prefetch_related(
+            "name_item_recruitment"
+        ).filter(slug=slug).first()
+        context["recruitment"] = recruitment
+        return context
+    

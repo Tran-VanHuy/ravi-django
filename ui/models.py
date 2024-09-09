@@ -110,7 +110,7 @@ class ItemProject(models.Model):
     
 class Recruitment(models.Model):
     name = models.CharField(max_length=255, verbose_name="name")
-    title = models.CharField(max_length=255, verbose_name="title")
+    title = models.TextField(verbose_name="title")
     image = image = models.FileField(upload_to="static/images", unique=True, verbose_name="image")
 
     class Meta:
@@ -134,6 +134,7 @@ class NameItemRecruitment(models.Model):
         null=True
     )
     content = RichTextUploadingField(verbose_name="content", blank=True, null=True)
+    slug = models.SlugField(default="", null=False)
     item = models.ForeignKey(
         Recruitment,
         null=True,
@@ -161,6 +162,7 @@ class ItemNameItemRecruitment(models.Model):
         related_name="name_item_recruitment",
         on_delete=models.CASCADE
     )
+    show_job_list = models.BooleanField(default=False, verbose_name="Show at page job list")
 
     class Meta:
         db_table="item_name_item_recruitment"

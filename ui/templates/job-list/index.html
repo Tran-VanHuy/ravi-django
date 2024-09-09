@@ -1,0 +1,88 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}
+  Tuyển dụng
+{% endblock %}
+
+{% block content %}
+  {% comment %}banner{% endcomment %}
+  <div class="relative">
+    <img src="{% static 'images/unsplash_ilHo9qgDEGY-job-list.png' %}" alt="" srcset="" />
+    <div class="absolute top-0 w-full h-full flex items-center">
+      <div class="text-white flex flex-col items-center justify-center w-full">
+        <h1 class="uppercase">tuyển dụng</h1>
+        <div class="flex gap-3">
+          <a href="{% url 'landing-page' %}">Home</a>
+          <p>/</p>
+          <p>Tuyển dụng</p>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-0 w-full">
+      <div class="lg:h-[20px] h-[4px] bg-[#C4C4C4] lg:mx-[120px] mx-[22px] bg-opacity-50"></div>
+      <div class="lg:h-[50px] h-[6px] bg-white lg:mx-[88px] mx-[16px]"></div>
+    </div>
+  </div>
+
+  {% comment %} {% endcomment %}
+  <main class="pt-[50px] lg:px-[118px] px-[16px] lg:pb-[150px] pb-[50px]">
+    <div class="text-center lg:mb-[50px] mb-[36px]">
+      <h2 class="uppercase lg:mb-[27px] mb-[24px]">{{ recruitment.name }}</h2>
+      <p class="max-[600px]:px-[16px] px-[5%]">{{ recruitment.title }}</p>
+    </div>
+
+    <div class="max-[800px]:hidden">
+      <table class="w-full">
+        <tbody>
+          {% for item in item_recruitment %}
+            <tr class="border-t-[1px] border-[#F5F5F5] hover:bg-[#F9F8F5]">
+              <td class="mr-3 py-[32px]">
+                <p class="text-main font-[500]">{{ item.work }}</p>
+                <h3 class="text-blackMain line-clamp-2">{{ item.name }}</h3>
+              </td>
+              <td class="text-[#666666] flex py-[32px] gap-[100px] mr-3">
+                {% for in_item in item.name_item_recruitment.all %}
+                  {% if forloop.counter <= 4 %}
+                    <div>
+                      <p class="text-[18px] text-nowrap">{{ in_item.name }}</p>
+                      <span class="font-[700] text-[21px] text-grayMain text-nowrap">{{ in_item.content }}</span>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </td>
+              <td>
+                <a href="{% url 'job-opening' item.slug %}"><button class="w-[207px] h-[50px] rounded-[25px] border-[2px] border-[#BA9256] font-[700] text-[#666666] uppercase">ứng tuyển ngay</button></a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="min-[801px]:hidden">
+      {% for item in item_recruitment %}
+        <div class="border-b-[1px] border-[#F5F5F5] py-[30px] last:border-b-[0px]">
+          <div class="mb-[16px]">
+            <p class="text-main font-[500] mb-[16px]">{{ item.work }}</p>
+            <h3 class="text-blackMain">{{ item.name }}</h3>
+          </div>
+          <div class="flex flex-col gap-[10px] mb-[16px]">
+            {% for in_item in item.name_item_recruitment.all %}
+              {% if forloop.counter <= 4 %}
+                <p class="text-[18px]">
+                  {{ in_item.name }}: <span class="font-[700] text-[21px] text-grayMain">{{ in_item.content }}</span>
+                </p>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <a href="{% url 'job-opening' item.slug %}"><button class="w-[207px] h-[50px] rounded-[25px] border-[2px] border-[#BA9256] font-[700] text-[#666666] uppercase">ứng tuyển ngay</button></a>
+        </div>
+      {% endfor %}
+    </div>
+
+    {% if data_last != 0 %}
+      <a href="?page_size={{ page_size_last }}"><button type="submit" class="w-full bg-[#BA9256] uppercase text-white font-[700] h-[50px]">Xem thêm {{ data_last }} vị trí</button></a>
+    {% endif %}
+  </main>
+  {% include 'components/register.html' %}
+{% endblock %}
