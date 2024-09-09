@@ -27,7 +27,7 @@ class ItemProjectsInline(admin.TabularInline):
 # Admin
 class AboutMeAdmin(admin.ModelAdmin):
     list_display = ["name", "title"]
-    prepopulated_fields = {"slug": ("name", "title")}
+    prepopulated_fields = {"slug": ["name", "title"]}
 
 class ActionsAdmin(admin.ModelAdmin):
     list_display = ["name", "title"]
@@ -76,6 +76,8 @@ admin.site.register(NameItemRecruitment, NameRecruitmentAdmin)
 admin.site.register(Partner, PartnerAdmin)
 admin.site.register(ItemProject, ItemProjectAdmin)
 admin.site.register(Register, RegisterAdmin)
+admin.site.register(ItemAction)
+
 # 
 admin.site.unregister(Group)
 
