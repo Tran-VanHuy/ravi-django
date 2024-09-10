@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-8!alj=*vvvt(qs3isu4e_u&odksqanv)^akdr6hity3k1k=c#$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ui'
+    'ui',
 ]
 
 MIDDLEWARE = [
@@ -117,17 +117,22 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+# STATIC_ROOT = "static"
+STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    "static",
-    "/var/www/static/",
-]
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'static/media'
+
+if DEBUG:
+    STATICFILES_DIRS = [BASE_DIR / 'static']
+else:
+    STATIC_ROOT = BASE_DIR /'static'
+
+# CKEditor Settings
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
+ALLOW_UNICODE_SLUGS = True
 
