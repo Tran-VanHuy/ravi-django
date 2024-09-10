@@ -2,7 +2,6 @@ from typing import Any
 from django.shortcuts import render
 from django.views.generic import TemplateView
 
-
 # Create your views here.
 
 class LandingPage(TemplateView):
@@ -25,9 +24,12 @@ class ProjectListPage(TemplateView):
 class AboutPage(TemplateView):
     template_name="about/index.html"
 
-        
 class JobListPage(TemplateView):
     template_name = "job-list/index.html"
     
 class JobOpening(TemplateView):
     template_name = "job-opening/index.html"
+
+def error_404(request, exception):
+    print("vào đay 2")
+    return render(request, '404.html', status=404)
