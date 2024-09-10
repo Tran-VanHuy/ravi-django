@@ -149,5 +149,3 @@ CKEDITOR_CONFIGS = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ALLOW_UNICODE_SLUGS = True
-
-

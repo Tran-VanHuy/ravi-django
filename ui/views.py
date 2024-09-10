@@ -162,3 +162,6 @@ class JobOpening(TemplateView):
         context["recruitment"] = recruitment
         return self.render_to_response(context)
     
+class AboutPage(TemplateView):
+    template_name="about/index.html"
+
