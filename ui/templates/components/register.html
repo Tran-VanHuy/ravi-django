@@ -1,25 +1,25 @@
 {% load static %}
 <main class="relative">
     <img src="{% static 'images/Rectangle 336.png' %}" alt="" srcset="" class="absolute w-full h-full">
-    <div class="relative z-10 lg:flex lg:mx-[128px] mx-[16px] lg:py-[131px] py-[50px] gap-[166px] items-center justify-center" id="lien-he">
-        <div class="lg:text-[80px] text-[30px] text-main lg:text-left text-center lg:mb-0 mb-[36px]">
+    <div class="relative z-10 xl:flex xl:mx-[128px] mx-[16px] xl:py-[131px] py-[50px] gap-[166px] items-center justify-center" id="lien-he">
+        <div class="xl:text-[80px] text-[30px] text-main xl:text-left text-center xl:mb-0 mb-[36px]">
             Đăng ký nhận voucher trải nghiệm nghỉ dưỡng miễn phí cùng RAVI!
         </div>
         <form method="post" id="myFormRegisterVoucher">
             {% csrf_token %}
-            <div class="flex justify-center lg:w-auto w-full">
-                <div class="lg:py-[64px] py-[24px] lg:px-[32px] px-[16px] bg-white lg:flex flex-col gap-[24px] inline-flex w-full">
+            <div class="flex justify-center xl:w-auto w-full">
+                <div class="xl:py-[64px] py-[24px] xl:px-[32px] px-[16px] bg-white xl:flex flex-col gap-[24px] inline-flex w-full">
                     <label for="">
                         <p class="text-[#BCBCBC] ml-[16px] uppercase">Họ tên</p>
-                        <input type="text" name="full_name" id="" placeholder="Họ tên" class="rounded-[25px] h-[50px] px-[16px] lg:w-[448px] w-full border-[1px] border-[#BCBCBC]" required>
+                        <input type="text" name="full_name" id="" placeholder="Họ tên" class="rounded-[25px] h-[50px] px-[16px] xl:w-[448px] w-full border-[1px] border-[#BCBCBC]" required>
                     </label>
                     <label for="">
                         <p class="text-[#BCBCBC] ml-[16px] uppercase">Số điện thoại</p>
-                        <input type="text" name="phone" id="" placeholder="Số điện thoại" class="rounded-[25px] h-[50px] px-[16px] lg:w-[448px] w-full border-[1px] border-[#BCBCBC]" required>
+                        <input type="text" name="phone" id="" placeholder="Số điện thoại" class="rounded-[25px] h-[50px] px-[16px] xl:w-[448px] w-full border-[1px] border-[#BCBCBC]" required>
                     </label>
                     <label for="">
                         <p class="text-[#BCBCBC] ml-[16px] uppercase">EMAIL</p>
-                        <input type="email" name="email" id="" placeholder="Email của bạn" class="rounded-[25px] h-[50px] px-[16px] lg:w-[448px] w-full border-[1px] border-[#BCBCBC]" required>
+                        <input type="email" name="email" id="" placeholder="Email của bạn" class="rounded-[25px] h-[50px] px-[16px] xl:w-[448px] w-full border-[1px] border-[#BCBCBC]" required>
                     </label>
                     <div class="flex justify-center items-center">
                         <button type="submit" class="uppercase text-white bg-main rounded-[25px] h-[50px] px-[32px]">đăng ký</button>
