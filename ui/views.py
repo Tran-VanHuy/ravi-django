@@ -25,3 +25,9 @@ class ProjectListPage(TemplateView):
 class AboutPage(TemplateView):
     template_name="about/index.html"
 
+        
+class JobListPage(TemplateView):
+    template_name = "job-list/index.html"
+    
+class JobOpening(TemplateView):
+    template_name = "job-opening/index.html"
