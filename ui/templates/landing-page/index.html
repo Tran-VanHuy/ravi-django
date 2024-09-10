@@ -12,8 +12,11 @@ Trang chủ
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="Ravi">
 <meta property="og:description" content="Ravi dự án, vila, du lịch tốt nhât cho bạn.">
-<meta property="og:image" content="https://www.google.com/imgres?q=ravi&imgurl=https%3A%2F%2Flookaside.fbsbx.com%2Flookaside%2Fcrawler%2Fmedia%2F%3Fmedia_id%3D469026169217431&imgrefurl=https%3A%2F%2Fwww.facebook.com%2Fravicompany.official%2F&docid=_V8RAbgKgGbVMM&tbnid=DKFNEvBLhow2dM&vet=12ahUKEwi9uIXL2a2IAxXaZvUHHfOSJVYQM3oECB0QAA..i&w=938&h=938&hcb=2&ved=2ahUKEwi9uIXL2a2IAxXaZvUHHfOSJVYQM3oECB0QAA">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/static/images/unsplash_F6Da4r2x5to_CRQbCjs.png">
+<meta property="og:image:alt" content="Ravi dự án, vila, du lịch tốt nhât cho bạn.">
 <meta property="og:url" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}">
+<meta property="fb:app_id" content="362029163478952">
+<meta name="og:type" content="website">
 <meta name="author" content="Trần Văn Huy">
 {% endblock %}
 
@@ -37,9 +40,12 @@ Trang chủ
         <div class="uppercase text-main font-[500] max-[600px]:text-[14px]">{{ about_me.name }}</div>
         <div class="text-[40px] text-blackMain max-[600px]:text-[30px]">{{ about_me.title }}</div>
       </div>
-      <p class="text-grayMain leading-[26px]">
+      <p class="text-grayMain leading-[26px] lg:mb-[50px] mb-[24px]">
        {{ about_me.desc|safe }}
       </p>
+      <a href="{% url 'about' about_me.slug %}">
+        <button class="inline uppercase text-grayMain font-bold px-[32px] h-[50px] rounded-[25px] border-[2px] border-main">xem thêm</button>
+      </a>
     </div>
   </div>
 </main>

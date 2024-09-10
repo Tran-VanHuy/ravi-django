@@ -6,6 +6,21 @@
   Chi tiết
 {% endblock %}
 
+{% block static %}
+<meta name="description" content="{{ project.address }}">
+<meta name="keywords" content="ravi, vila, du lịch">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="{{ project.name }}">
+<meta property="og:description" content="{{ project.address }}">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/{{ project.image }}">
+<meta property="og:image:alt" content="{{ project.address }}">
+<meta property="og:url" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/du-an/{{ project.slug }}">
+<meta property="fb:app_id" content="362029163478952">
+<meta name="og:type" content="website">
+<meta name="author" content="Trần Văn Huy">
+{% endblock %}
+
 {% block content %}
   <!-- banner -->
   {% comment %}banner{% endcomment %}

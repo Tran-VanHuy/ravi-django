@@ -165,3 +165,14 @@ class JobOpening(TemplateView):
 class AboutPage(TemplateView):
     template_name="about/index.html"
 
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        slug = self.kwargs['id']
+
+        about = AboutMe.objects.get(slug=slug)
+        project_other = ItemProject.objects.all().order_by("-id")[:3]
+
+        context['about'] = about
+        context['project_other'] = project_other
+        return context
+
