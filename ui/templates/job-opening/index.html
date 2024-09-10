@@ -24,7 +24,7 @@
     <div class="absolute top-0 w-full h-full flex items-center">
       <div class="text-white flex flex-col items-center justify-center w-full">
         <h1 class="uppercase text-center">{{ recruitment.name }}</h1>
-        <div class="flex gap-3">
+        <div class="flex flex-wrap gap-3 justify-center">
           <a href="/">Home</a>
           <p>/</p>
           <a href="{% url 'job-list' %}">Tuyển dụng</a>
@@ -84,7 +84,7 @@
               <p class="text-[21px] font-bold">{{ item.content }}</p>
             </div>
           {% endfor %}
-          <button id="open-modal" class="w-[276px] h-[50px] bg-[#BA9256] uppercase rounded-full text-white font-bold">ứng tuyển ngay</button>
+          <button id="open-modal" class="min-[765px]:w-[276px] w-full h-[50px] bg-[#BA9256] uppercase rounded-full text-white font-bold">ứng tuyển ngay</button>
         </div>
       </div>
     </div>

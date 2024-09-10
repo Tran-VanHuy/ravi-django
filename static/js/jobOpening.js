@@ -5,8 +5,24 @@ $(document).ready(function () {
     const openModal = $('#open-modal')
     const closeModal = $('#close-modal')
 
+    function isMobileDevice() {
+        return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    }
+
     // Sự kiện mở modal
     openModal.on('click', function () {
+
+        let checkDevice = "desktop"
+
+        if (isMobileDevice()) {
+            checkDevice = "mobile"
+        }
+
+        if (checkDevice === "mobile") {
+
+            toastr.error("Vui lòng sử dụng máy tính để ứng tuyển...!")
+            return;
+        }
         modal.removeClass('hidden')
     })
 
