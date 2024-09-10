@@ -1,0 +1,78 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block title %}
+  Về chúng tôi
+{% endblock %}
+
+{% block content %}
+  <!-- banner -->
+  {% comment %}banner{% endcomment %}
+  <div class="relative">
+    <img src="{% static 'images/banner-project-list.png' %}" alt="" srcset="" />
+    <div class="absolute top-0 w-full h-full flex items-center">
+      <div class="text-white flex flex-col items-center justify-center w-full">
+        <h1 class="uppercase">Về chúng tôi</h1>
+        <div class="flex gap-3">
+          <a href="/">Home</a>
+          <p>/</p>
+          <p>Về chúng tôi</p>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-0 w-full">
+      <div class="lg:h-[20px] h-[4px] bg-[#C4C4C4] lg:mx-[120px] mx-[22px] bg-opacity-50"></div>
+      <div class="lg:h-[50px] h-[6px] bg-white lg:mx-[88px] mx-[16px]"></div>
+    </div>
+  </div>
+
+  <!--  -->
+  <main>
+    <div class="pt-[50px] lg:pb-[150px] pb-[50px] lg:px-[122px] px-[16px] min-h-[500px]">content1</div>
+  </main>
+
+  <main class="bg-[#F9F8F5] lg:px-[118px] px-[16px] lg:py-[150px] py-[50px]">
+    <div class="uppercase text-center lg:mb-[50px] mb-[24px]">
+      <div class="text-main font-[500] max-[600px]:text-[14px]">có thể bạn quan tâm?</div>
+      <h2>các dự án liên quan</h2>
+    </div>
+    <div class="grid lg:grid-cols-3 grid-cols-1 lg:gap-[32px] gap-[10px]">
+      <div class="col-span-1">
+        <div class="relative">
+          <img src="{% static '/images/image-project-detail.png' %}" alt="" srcset="" class="max-h-[539px] h-full w-full" />
+          <div class="absolute bottom-0 w-full">
+            <div class="pt-[64px] pb-[32px] px-[24px]" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);">
+              <h3 class="text-white">Hasu Village</h3>
+              <p class="uppercase text-main font-[500] max-[600px]:text-[14px]">Xóm Nước Hang, Hòa Bình</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-span-1">
+        <div class="relative">
+          <img src="{% static '/images/image-project-detail.png' %}" alt="" srcset="" class="max-h-[539px] h-full w-full" />
+          <div class="absolute bottom-0 w-full">
+            <div class="pt-[64px] pb-[32px] px-[24px]" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);">
+              <h3 class="text-white">Hasu Village</h3>
+              <p class="uppercase text-main font-[500] max-[600px]:text-[14px]">Xóm Nước Hang, Hòa Bình</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-span-1">
+        <div class="relative">
+          <img src="{% static '/images/image-project-detail.png' %}" alt="" srcset="" class="max-h-[539px] h-full w-full" />
+          <div class="absolute bottom-0 w-full">
+            <div class="pt-[64px] pb-[32px] px-[24px]" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);">
+              <h3 class="text-white">Hasu Village</h3>
+              <p class="uppercase text-main font-[500] max-[600px]:text-[14px]">Xóm Nước Hang, Hòa Bình</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  {% include 'components/register.html' %}
+{% endblock %}
