@@ -9,12 +9,12 @@
 {% block static %}
 <meta name="description" content="{{ about.desc }}">
 <meta name="keywords" content="ravi, vila, du lịch">
-<link rel="canonical" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}">
+<link rel="canonical" href="https://{{ request.META.HTTP_HOST }}/ve-chung-toi/{{ about.slug }}">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="{{ about.title }}">
 <meta property="og:description" content="{{ about.desc }}">
-<meta property="og:image" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/static/images/banner-project-list.png">
-<meta property="og:url" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/ve-chung-toi/{{ about.slug }}">
+<meta property="og:image" content="https://{{ request.META.HTTP_HOST }}/static/images/banner-project-list.png">
+<meta property="og:url" content="https://{{ request.META.HTTP_HOST }}/ve-chung-toi/{{ about.slug }}">
 <meta property="og:image:alt" content="Ravi dự án, vila, du lịch tốt nhât cho bạn.">
 <meta property="fb:app_id" content="362029163478952">
 <meta name="author" content="Trần Văn Huy">

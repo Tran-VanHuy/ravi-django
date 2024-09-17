@@ -6,12 +6,12 @@
 {% block static %}
 <meta name="description" content="Ravi dự án, vila, du lịch tốt nhât cho bạn.">
 <meta name="keywords" content="ravi, vila, du lịch">
-<link rel="canonical" href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}">
+<link rel="canonical" href="https://{{ request.META.HTTP_HOST }}/du-an/${{recruitment.slug}}">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="{{recruitment.name}}">
 <meta property="og:description" content="Ravi dự án, vila, du lịch tốt nhât cho bạn">
-<meta property="og:image" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/static/images/unsplash_1K8pIbIrhkQ_td.png">
-<meta property="og:url" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/tuyen-dung/{{recruitment.slug}}">
+<meta property="og:image" content="https://{{ request.META.HTTP_HOST }}/static/images/unsplash_1K8pIbIrhkQ_td.png">
+<meta property="og:url" content="https://{{ request.META.HTTP_HOST }}/tuyen-dung/{{recruitment.slug}}">
 <meta property="og:image:alt" content="Ravi dự án, vila, du lịch tốt nhât cho bạn.">
 <meta name="author" content="Trần Văn Huy">
 <meta name="og:type" content="website">
@@ -50,7 +50,7 @@
           <h4 class="text-[#BCBCBC]">Chia sẻ</h4>
           <div class="flex gap-[16px]">
             <div class="w-[50px] h-[50px] rounded-full bg-[#F5F5F5] flex justify-center items-center group">
-              <a href="https://www.facebook.com/dialog/feed?&app_id=362029163478952&link={{ request.scheme }}://{{ request.META.HTTP_HOST }}/tuyen-dung/{{recruitment.slug}}&display=popup&quote=1231232&hashtag=#HASHTAG&title={articleTitle}&summary={articleSummary}" target="_blank">
+              <a href="https://www.facebook.com/dialog/feed?&app_id=362029163478952&link=https://{{ request.META.HTTP_HOST }}/tuyen-dung/{{recruitment.slug}}&display=popup&quote=1231232&hashtag=#HASHTAG&title={articleTitle}&summary={articleSummary}" target="_blank">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="w-[11px] fill-[#BCBCBC] group-hover:fill-main">
                   <!-- !Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
                   <path d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z" />
