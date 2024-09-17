@@ -176,3 +176,21 @@ class AboutPage(TemplateView):
         context['project_other'] = project_other
         return context
 
+def error_404(request, exception):
+    print("vào đay 2")
+    return render(request, '404.html', status=404)
+
+class ActionDetailPage(TemplateView):
+    template_name = "action-detail/index.html"
+
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        slug = self.kwargs['id']
+
+        action = ItemAction.objects.get(slug=slug)
+        project_other = ItemProject.objects.all().order_by("-id")[:3]
+
+
+        context["action"] = action
+        context["project_other"] = project_other
+        return context

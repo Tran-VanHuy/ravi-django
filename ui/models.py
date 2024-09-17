@@ -75,10 +75,18 @@ class ItemAction(models.Model):
         return f'{self.title}'
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
-        if not self.slug:
-            slug_str = f"{self.title}"
-            self.slug = slugify(slug_str, allow_unicode=True)
+        if not self.slug:  # Chỉ tạo slug nếu chưa có
+            self.slug = slugify(self.title, allow_unicode=True)
+        else:
+            # Kiểm tra nếu slug đã tồn tại, thêm hậu tố để đảm bảo tính duy nhất
+            original_slug = self.slug
+            queryset = ItemAction.objects.filter(slug=self.slug).exists()
+            counter = 1
+            while queryset:
+                self.slug = f"{original_slug}-{counter}"
+                counter += 1
+                queryset = ItemAction.objects.filter(slug=self.slug).exists()
+
         super(ItemAction, self).save(*args, **kwargs)
     
     class Meta:

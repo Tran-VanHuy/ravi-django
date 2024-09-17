@@ -1,0 +1,78 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block title %}
+  Về chúng tôi
+{% endblock %}
+
+{% block static%}
+<meta name="description" content="Ravi dự án, vila, du lịch tốt nhât cho bạn.">
+<meta name="keywords" content="ravi, vila, du lịch">
+<link rel="canonical" href="https://{{ request.META.HTTP_HOST }}/linh-vuc/{{action.slug}}">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="{{action.title}}">
+<meta property="og:description" content="Ravi dự án, vila, du lịch tốt nhât cho bạn.">
+<meta property="og:image" content="https://{{ request.META.HTTP_HOST }}/static/images/banner-project-list.png">
+<meta property="og:image:secure_url" content="https://{{ request.META.HTTP_HOST }}/static/images/banner-project-list.png" />
+<meta property="og:image:width" content="1280" />
+<meta property="og:image:height" content="809" />
+<meta property="og:image:alt" content="Ravi dự án, vila, du lịch tốt nhât cho bạn.">
+<meta property="og:url" content="https://{{ request.META.HTTP_HOST }}/linh-vuc/{{action.slug}}">
+<meta property="fb:app_id" content="362029163478952">
+<meta property="og:type" content="article">
+<meta name="author" content="Trần Văn Huy">
+{% endblock %}
+
+{% block content %}
+  <!-- banner -->
+  {% comment %}banner{% endcomment %}
+  <div class="relative">
+    <img src="{% static 'images/banner-project-list.png' %}" alt="" srcset="" />
+    <div class="absolute top-0 w-full h-full flex items-center">
+      <div class="text-white flex flex-col items-center justify-center w-full text-center">
+        <h1 class="uppercase">lĩnh vực hoạt động</h1>
+        <div class="flex gap-3 text-center">
+          <a href="/">Home</a>
+          <p>/</p>
+          <p>{{ action.title }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-0 w-full">
+      <div class="lg:h-[20px] h-[4px] bg-[#C4C4C4] lg:mx-[120px] mx-[22px] bg-opacity-50"></div>
+      <div class="lg:h-[50px] h-[6px] bg-white lg:mx-[88px] mx-[16px]"></div>
+    </div>
+  </div>
+
+  <!--  -->
+  <main>
+    <div class="pt-[50px] lg:pb-[150px] pb-[50px] lg:px-[122px] px-[16px] min-h-[500px]">{{ action.content|safe }}</div>
+  </main>
+
+  <main class="bg-[#F9F8F5] lg:px-[118px] px-[16px] lg:py-[150px] py-[50px]">
+    <div class="uppercase text-center lg:mb-[50px] mb-[24px]">
+      <div class="text-main font-[500] max-[600px]:text-[14px]">có thể bạn quan tâm?</div>
+      <h2>các dự án liên quan</h2>
+    </div>
+    <div class="grid lg:grid-cols-3 grid-cols-1 lg:gap-[32px] gap-[10px]">
+      {% for item in project_other %}
+      <div class="col-span-1">
+        <div class="relative h-full">
+          <img src="/{{ item.image }}" alt="" srcset="" class="max-h-[539px] h-full w-full" />
+          <div class="absolute bottom-0 w-full">
+           <a href="{% url 'project-detail' item.slug %}">
+            <div class="pt-[64px] pb-[32px] px-[24px]" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);">
+              <h3 class="text-white">{{ item.name }}</h3>
+              <p class="uppercase text-main font-[500] max-[600px]:text-[14px]">{{ item.address }}</p>
+            </div>
+           </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </main>
+
+  {% include 'components/register.html' %}
+{% endblock %}
