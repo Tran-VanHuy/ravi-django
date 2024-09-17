@@ -33,7 +33,8 @@ urlpatterns = [
     path('du-an', ProjectListPage.as_view(), name="project-list"),
     path('ve-chung-toi/<id>', AboutPage.as_view(), name="about"),
     path('tuyen-dung', JobListPage.as_view(), name="job-list"),
-    path('tuyen-dung/<id>', JobOpening.as_view(), name="job-opening")
+    path('tuyen-dung/<id>', JobOpening.as_view(), name="job-opening"),
+    path('linh-vuc/<id>', ActionDetailPage.as_view(), name="action-detail"),
 ]
 
 urlpatterns +=static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
