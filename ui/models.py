@@ -5,7 +5,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 from django.utils.text import slugify
 # Create your models here.
 class Banner(models.Model):
-    image = models.ImageField(upload_to="static/images", unique=True, blank=True, null=True)
+    image = models.ImageField(upload_to="media/static/images", unique=True, blank=True, null=True)
     page = models.IntegerField(
         choices=[
             (PageEnums.HOME_PAGE.value, "HOME_PAGE"),
@@ -23,7 +23,7 @@ class Banner(models.Model):
         verbose_name_plural="banners"
 
 class AboutMe(models.Model):
-    image = models.ImageField(upload_to="static/images", unique=True, blank=True, null=True)
+    image = models.ImageField(upload_to="media/static/images", unique=True, blank=True, null=True)
     name = models.CharField(max_length=255, blank=True, null=True, verbose_name="Name")
     title = models.CharField(max_length=255, blank=True, null=True, verbose_name="Title")
     desc = models.TextField(verbose_name="Short desc")
@@ -107,7 +107,7 @@ class Project(models.Model):
         return f'{self.name}'
 
 class ItemProject(models.Model):
-    image = models.FileField(upload_to="static/images", unique=True, verbose_name="image")
+    image = models.FileField(upload_to="media/static/images", unique=True, verbose_name="image")
     name = models.CharField(max_length=255, verbose_name="name")
     address = models.CharField(max_length=255, verbose_name="address")
     content = RichTextUploadingField()
@@ -139,7 +139,7 @@ class ItemProject(models.Model):
 class Recruitment(models.Model):
     name = models.CharField(max_length=255, verbose_name="name")
     title = models.TextField(verbose_name="title")
-    image = image = models.FileField(upload_to="static/images", unique=True, verbose_name="image")
+    image = image = models.FileField(upload_to="media/static/images", unique=True, verbose_name="image")
 
     class Meta:
         db_table="recruitment"
@@ -220,7 +220,7 @@ class Partner(models.Model):
         return f'{self.name}'
 
 class ItemPartner(models.Model):
-    image = models.FileField(upload_to="static/images", unique=True, verbose_name="image")
+    image = models.FileField(upload_to="media/static/images", unique=True, verbose_name="image")
     link = models.TextField(verbose_name="link")
     item = models.ForeignKey(
         Partner,
