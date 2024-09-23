@@ -28,7 +28,7 @@ Trang chủ
 <div class="relative overflow-hidden">
   <div class="slider-banner">
     {% for banner in banners %}
-    <img src={{ banner.image }} alt="" srcset="" class="lg:h-[90vh] h-[50vh] w-full" />
+    <img src={{ banner.image.url }} alt="" srcset="" class="lg:h-[90vh] h-[50vh] w-full" />
     {% endfor %}
   </div>
   <img src="{% static 'images/h1-rev-bottom 1.png' %}" alt="" srcset="" class="absolute w-full bottom-0" />
@@ -37,7 +37,7 @@ Trang chủ
 <!-- Về chúng tôi -->
 <main class="xl:py-[150px] py-[50px] xl:px-[122px] px-[16px]">
   <div class="xl:flex xl:justify-between xl:items-center xl:gap-[104px] " id="ve-chung-toi">
-    <img src={{ about_me.image }} alt="" srcset="" class="xl:mb-[0px] mb-[36px] xl:h-[100vh] mx-auto" />
+    <img src={{ about_me.image.url }} alt="" srcset="" class="xl:mb-[0px] mb-[36px] xl:h-[100vh] mx-auto" />
     <div class="flex-1 text-center">
       <div class="xl:mb-[50px] mb-[24px]">
         <div class="uppercase text-main font-[500] max-[600px]:text-[14px]">{{ about_me.name }}</div>
@@ -96,7 +96,7 @@ Trang chủ
         {% for item in item_projects %}
         <div class="mr-2">
           <div class="relative">
-            <img src={{ item.image }} alt="" srcset=""
+            <img src={{ item.image.url }} alt="" srcset=""
               class="w-full lg:h-[700px] h-[400px]" />
            <a href="{% url 'project-detail' item.slug %}">
             <div class="absolute bottom-0 w-full px-[24px] pt-[64px] pb-[32px]"
@@ -121,7 +121,7 @@ Trang chủ
 </main>
 <!-- Tuyển dụng -->
 <main class="xl:grid grid-cols-2 gap-[80px] bg-[#F9F8F5]">
-  <img src={{ recruitment.image }} alt="" srcset=""
+  <img src={{ recruitment.image.url }} alt="" srcset=""
     class="xl:h-full h-[50vh] xl:w-auto w-full xl:w-auto xl:mb-0 col-span-1" />
   <div class="col-span-1 xl:pr-[120px] xl:pl-0 pr-[16px] pl-[16px] pb-[50px]" id="tuyen-dung">
     <div class="uppercase xl:mb-[50px] mb-[36px] xl:pt-[150px] pt-[50px]">
@@ -167,7 +167,7 @@ Trang chủ
       {% for item in item_partner %}
       <div>
         <a href={{item.link}} target="_blank">
-          <img src={{ item.image }} alt="" srcset="" />
+          <img src={{ item.image.url }} alt="" srcset="" />
         </a>
       </div>
       {% endfor %}

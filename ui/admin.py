@@ -70,7 +70,7 @@ class BannerAdmin(admin.ModelAdmin):
     list_filter = ["page"]
     def image_tag(self, obj):
         if obj.image:
-            return mark_safe(f'<img src="/{obj.image}" width="100" height="50" />')
+            return mark_safe(f'<img src="{obj.image.url}" width="100" height="50" />')
         return "No Image"
 
     image_tag.short_description = 'Image'
