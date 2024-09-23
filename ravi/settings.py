@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-8!alj=*vvvt(qs3isu4e_u&odksqanv)^akdr6hity3k1k=c#$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*', 'localhost', '127.0.0.1', '*.ngrok-free.app']
 
@@ -125,9 +125,11 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'static/media'
 
 if DEBUG:
-    STATICFILES_DIRS = [BASE_DIR / 'static']
+    STATICFILES_DIRS = [
+        BASE_DIR / 'static', 
+        BASE_DIR / 'static/media/static']
 else:
-    STATIC_ROOT = BASE_DIR /'static'
+    STATIC_ROOT = BASE_DIR /'media/static'
 
 # CKEditor Settings
 CKEDITOR_UPLOAD_PATH = 'uploads/'

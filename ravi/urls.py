@@ -22,7 +22,7 @@ from django.conf import settings
 from django.views.static import serve
 
 urlpatterns = [
-    re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+    re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
     re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
     path('admin/', admin.site.urls),
     path('', LandingPage.as_view(), name="landing-page"),
@@ -35,6 +35,3 @@ urlpatterns = [
     path('ve-chung-toi/<id>', AboutPage.as_view(), name="about"),
     path('linh-vuc/<id>', ActionDetailPage.as_view(), name="action-detail"),
 ]
-
-urlpatterns +=static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
