@@ -7,6 +7,7 @@ from django.shortcuts import render
 from django.db.models import Prefetch
 from django.shortcuts import get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import redirect
 
 # Create your views here.
 
@@ -194,3 +195,11 @@ class ActionDetailPage(TemplateView):
         context["action"] = action
         context["project_other"] = project_other
         return context
+
+def custom_500_error(request, *args, **argv):
+    user = request.user
+    if user and user.is_superuser:
+        return redirect('/admin/')  # Chuyển hướng về trang chủ Admin
+
+    return redirect('/')  # Chuyển hướng về trang chủ Admin
+    
