@@ -1,4 +1,4 @@
 django-ckeditor==6.7.1
 pillow
 django-modeladmin-reorder
-django-admin-reorder
+django-modeladmin-reorder-reborn
