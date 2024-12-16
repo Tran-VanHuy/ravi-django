@@ -3,6 +3,8 @@ from enum import Enum
 class PageEnums(Enum):
     HOME_PAGE = 1
     PROJECT = 2
+    RECRUITMENT = 3
+    FIELD = 4
 
     @classmethod
     def choices(cls):

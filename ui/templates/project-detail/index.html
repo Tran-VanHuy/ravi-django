@@ -25,7 +25,7 @@
   <!-- banner -->
   {% comment %}banner{% endcomment %}
   <div class="relative">
-    <img src="{% static 'images/banner-project-list.png' %}" alt="" srcset="" />
+    <img src="{{ project.image_detail.url }}" alt="" srcset="" class="w-full h-[90vh]" />
     <div class="absolute top-0 w-full h-full flex items-center">
       <div class="text-white flex flex-col items-center justify-center w-full">
         <h1 class="uppercase">dự án</h1>

@@ -50,6 +50,7 @@ class ProjectDetailPage(TemplateView):
         slug = self.kwargs['id']
 
         project = ItemProject.objects.filter(slug=slug).first()
+        print("project", project.image_detail)
         project_other = ItemProject.objects.exclude(id=project.id).all().order_by("-id")[:3]
         
         context["project"] = project
@@ -101,6 +102,8 @@ class JobListPage(TemplateView):
     def get_context_data(self, **kwargs) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
         recruitment = Recruitment.objects.all().order_by("-id").first()
+        banner = Banner.objects.filter(page=3).first()
+        print(banner.image.url)
         item_recruitment = NameItemRecruitment.objects.prefetch_related(
             Prefetch("name_item_recruitment",
             queryset = ItemNameItemRecruitment.objects.filter(show_job_list=True))
@@ -121,6 +124,7 @@ class JobListPage(TemplateView):
         context["item_recruitment"] = page_obj
         context["data_last"] = data_last
         context["page_size_last"] = page_size_last
+        context['banner'] = banner
         return context
     
 

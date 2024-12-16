@@ -9,7 +9,9 @@ class Banner(models.Model):
     page = models.IntegerField(
         choices=[
             (PageEnums.HOME_PAGE.value, "HOME_PAGE"),
-            (PageEnums.PROJECT.value, "PROJECT")
+            (PageEnums.PROJECT.value, "PROJECT"),
+            (PageEnums.RECRUITMENT.value, "RECRUITMENT"),
+            (PageEnums.FIELD.value, "FIELD"),
         ],
         verbose_name="Page"
     )
@@ -23,7 +25,8 @@ class Banner(models.Model):
         verbose_name_plural="banners"
 
 class AboutMe(models.Model):
-    image = models.ImageField(upload_to="images", unique=True, blank=True, null=True)
+    image = models.ImageField(upload_to="images", unique=True, blank=True, null=True, verbose_name='Image (Home Page)')
+    image_detail = models.ImageField(upload_to="images", unique=True, blank=True, null=True, verbose_name='Image (Detail Page)')
     name = models.CharField(max_length=255, blank=True, null=True, verbose_name="Name")
     title = models.CharField(max_length=255, blank=True, null=True, verbose_name="Title")
     desc = models.TextField(verbose_name="Short desc")
@@ -108,6 +111,7 @@ class Project(models.Model):
 
 class ItemProject(models.Model):
     image = models.FileField(upload_to="images", unique=True, verbose_name="image")
+    image_detail = models.FileField(upload_to="images", unique=True, verbose_name="image_detail", blank=True, null=True)
     name = models.CharField(max_length=255, verbose_name="name")
     address = models.CharField(max_length=255, verbose_name="address")
     content = RichTextUploadingField()

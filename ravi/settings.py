@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 SECRET_KEY = 'django-insecure-8!alj=*vvvt(qs3isu4e_u&odksqanv)^akdr6hity3k1k=c#$'
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['*', 'localhost', '127.0.0.1', '*.ngrok-free.app', '103.173.255.165']
 
 # Application definition
