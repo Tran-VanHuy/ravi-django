@@ -1,3 +1,4 @@
 django-ckeditor==6.7.1
 pillow
-django-modeladmin-reorder
+django-modeladmin-reordernano 
+django-admin-reorder
